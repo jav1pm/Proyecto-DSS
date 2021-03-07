@@ -26,7 +26,7 @@ class Usuario extends Model
         'password', 'remember_token',
     ];
 
-    //
+    //Función que obtiene los pedidos de un usuario.
     public function pedidos() {
         return $this->hasMany('App\Pedido');
     }
