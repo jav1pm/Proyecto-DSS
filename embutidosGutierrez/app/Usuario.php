@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Pedido;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
     use Notifiable;
 
