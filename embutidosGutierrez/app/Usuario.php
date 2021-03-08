@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\Usuario as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Pedido;
 
 class Usuario extends Authenticatable
@@ -16,7 +16,7 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre', 'apellidos', 'email', 'password', 'direccion', 'numCuenta', 'tipoUsuario', 'numCompras'
+        'nombre', 'apellidos', 'email', 'password', 'direccion', 'ciudad', 'telefono', 'tipoUsuario'
     ];
 
     /**

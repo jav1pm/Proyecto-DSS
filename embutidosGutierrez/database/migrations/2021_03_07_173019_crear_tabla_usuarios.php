@@ -18,12 +18,14 @@ class CrearTablaUsuarios extends Migration
             $table -> string('nombre');
             $table -> string('apellidos');
             $table -> string('email') -> unique();
-            $table -> string('direccion');
+            $table -> string('direccion')->nullable();
+            $table -> string('ciudad')->nullable();
+            $table -> string('telefono');
             $table -> string('password');
-            $table -> integer('numCuenta') -> nullable(true);
-            $table -> boolean('tipoUsuario');
-            $table -> integer('numCompras');
+            $table -> string('tipoUsuario');
+            $table->rememberToken();
             $table -> timestamps();
+            
         });
     }
 
