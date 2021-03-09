@@ -18,14 +18,13 @@ class CrearTablaUsuarios extends Migration
             $table -> string('nombre');
             $table -> string('apellidos');
             $table -> string('email') -> unique();
-            $table -> string('direccion')->nullable();
-            $table -> string('ciudad')->nullable();
-            $table -> string('telefono');
             $table -> string('password');
-            $table -> string('tipoUsuario');
+            $table -> string('telefono')->nullable();
+            $table -> boolean('esAdmin');
+            $table -> string('direccion')->nullable();
+            $table -> string('pago')->nullable();
             $table->rememberToken();
             $table -> timestamps();
-            
         });
     }
 

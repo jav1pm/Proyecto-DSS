@@ -16,7 +16,9 @@ class CrearTablaPedidos extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('fecha');
-            $table->double('precio');
+            $table->string('estado');
+            $table->string('direccion');
+            $table->string('pago');
             $table->unsignedBigInteger('usuario') -> nullable(false);
             $table->foreign('usuario') -> references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();

@@ -21,21 +21,21 @@ class UsuariosTableSeeder extends Seeder
             'email' => 'javi18pm@gmail.com',
             'password' => bcrypt('3mbut1d0'),
             'telefono' => '654428170',
-            'tipoUsuario' => 'admin'
+            'esAdmin' => true
         ]);
         $usuario1->save();
         //DB::table('usuarios')->insert($usuario1);
         
-
         $usuario2 = new Usuario([
             'nombre' => 'Fran',
             'apellidos' => 'Murcia',
             'email' => 'fmurciag@gmail.com',
             'password' => bcrypt('mur1c4'),
-            'direccion' => 'Calle Murcia',
-            'ciudad' => 'Murcia',
             'telefono' => '649887045',
-            'tipoUsuario' => 'cliente'
+            'esAdmin' => false,
+            'direccion' => 'Calle Murcia',
+            'pago' => '385283281'
+
         ]);
         $usuario2->save();
     }

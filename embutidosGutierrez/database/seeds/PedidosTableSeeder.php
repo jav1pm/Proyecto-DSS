@@ -18,11 +18,12 @@ class PedidosTableSeeder extends Seeder
         // Recuperar el segundo usuario (cliente).
         $usuario2 = Usuario::find(2);
 
-        
         // Añadimos una entrada a esta tabla
         $pedido1 = new Pedido([
             'fecha' => date_create('2021-03-07'),
-            'pago' => 'pay_122345gz',
+            'estado' => 'En envío',
+            'direccion' => 'Copiar dirección guardada en usuario2',
+            'pago' => 'Copiar pago guardado en usuario2',
             'usuario' => $usuario2
         ]);
         $pedido1->usuario()->associate($usuario2);
