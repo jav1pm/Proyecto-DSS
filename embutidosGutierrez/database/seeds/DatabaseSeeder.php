@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PedidosTableSeeder::class);
         $this->command->info('Pedidos table seeded!');
+
+        $this->call(LinPedsTableSeeder ::class);
+        $this->command->info('LinPed table seeded!');
     }
 }

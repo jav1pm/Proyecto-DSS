@@ -2,12 +2,33 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Pedido;
 
-class LinPed extends Model
+class Linped extends Authenticatable
 {
-    // Función que obtiene el pedido al que pertenece una línea de pedido.
+    use Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id', 'cantidad', 'producto_id', 'pedido_id'
+    ];
+
+    //Función que obtiene el pedido que que contiene una linea de pedido.
     public function pedido() {
+        // Pedido tiene la clave ajena usuario.
         return $this->belongsTo('App\Pedido');
     }
+    
+    
+    /*//Función que obtiene los pedidos de un usuario.
+    public function producto() {
+        return $this->hasOne(App\Productos)
+
+    }*/
 }

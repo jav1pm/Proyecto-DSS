@@ -16,6 +16,7 @@ class CrearTablaLinpeds extends Migration
         Schema::create('linpeds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('cantidad');
+            $table->integer('producto_id');
             $table->bigInteger('pedido_id')->unsigned();
             $table->foreign('pedido_id')->references('id')->on('pedidos');
             $table->timestamps();
