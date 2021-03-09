@@ -14,17 +14,17 @@ class CrearTablaUsuarios extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table -> bigIncrements('id');
-            $table -> string('nombre');
-            $table -> string('apellidos');
-            $table -> string('email') -> unique();
-            $table -> string('password');
-            $table -> string('telefono')->nullable();
-            $table -> boolean('esAdmin');
-            $table -> string('direccion')->nullable();
-            $table -> string('pago')->nullable();
+            $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->string('apellidos');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('telefono')->nullable();
+            $table->boolean('esAdmin');
+            $table->string('direccion')->nullable();
+            $table->string('pago')->nullable();
             $table->rememberToken();
-            $table -> timestamps();
+            $table->timestamps();
         });
     }
 

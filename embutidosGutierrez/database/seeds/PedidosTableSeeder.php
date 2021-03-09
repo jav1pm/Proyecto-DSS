@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Pedido;
+use App\Usuario;
 
 class PedidosTableSeeder extends Seeder
 {
@@ -22,9 +23,8 @@ class PedidosTableSeeder extends Seeder
         $pedido1 = new Pedido([
             'fecha' => date_create('2021-03-07'),
             'estado' => 'En envío',
-            'direccion' => 'Copiar dirección guardada en usuario2',
-            'pago' => 'Copiar pago guardado en usuario2',
-            'usuario' => $usuario2
+            'direccion' => $usuario2 -> direccion,
+            'pago' => $usuario2 -> pago,
         ]);
         $pedido1->usuario()->associate($usuario2);
         $pedido1->save();     

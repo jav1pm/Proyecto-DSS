@@ -24,7 +24,6 @@ class UsuariosTableSeeder extends Seeder
             'esAdmin' => true
         ]);
         $usuario1->save();
-        //DB::table('usuarios')->insert($usuario1);
         
         $usuario2 = new Usuario([
             'nombre' => 'Fran',

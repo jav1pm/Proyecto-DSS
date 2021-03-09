@@ -19,9 +19,10 @@ class CrearTablaPedidos extends Migration
             $table->string('estado');
             $table->string('direccion');
             $table->string('pago');
-            $table->unsignedBigInteger('usuario') -> nullable(false);
-            $table->foreign('usuario') -> references('id')->on('usuarios')->onDelete('cascade');
+            $table->bigInteger('usuario_id')->unsigned();
+            $table->foreign('usuario_id')->references('id')->on('usuarios');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
