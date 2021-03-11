@@ -24,11 +24,4 @@ class Linped extends Authenticatable
         // Pedido tiene la clave ajena usuario.
         return $this->belongsTo('App\Pedido');
     }
-    
-    
-    /*//Función que obtiene los pedidos de un usuario.
-    public function producto() {
-        return $this->hasOne(App\Productos)
-
-    }*/
 }
