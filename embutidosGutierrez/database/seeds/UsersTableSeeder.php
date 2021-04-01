@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Usuario;
+use App\User;
 
-class UsuariosTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +13,9 @@ class UsuariosTableSeeder extends Seeder
     public function run()
     {
         // Borramos los datos de la tabla
-        DB::table('usuarios')->delete();
+        DB::table('users')->delete();
 
-        $usuario1 = new Usuario([
+        $usuario1 = new User([
             'nombre' => 'Javi',
             'apellidos' => ' Perez',
             'email' => 'javi18pm@gmail.com',
@@ -25,7 +25,7 @@ class UsuariosTableSeeder extends Seeder
         ]);
         $usuario1->save();
         
-        $usuario2 = new Usuario([
+        $usuario2 = new User([
             'nombre' => 'Fran',
             'apellidos' => 'Murcia',
             'email' => 'fmurciag@gmail.com',

@@ -11,13 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsuariosTableSeeder::class);
-        $this->command->info('Usuarios table seeded!');
+        $this->call(UsersTableSeeder::class);
+        $this->command->info('Users table seeded!');
 
-        $this->call(PedidosTableSeeder::class);
-        $this->command->info('Pedidos table seeded!');
+        $this->call(OrdersTableSeeder::class);
+        $this->command->info('Orders table seeded!');
 
-        $this->call(LinPedsTableSeeder ::class);
-        $this->command->info('LinPed table seeded!');
+        $this->call(OrderLinesTableSeeder ::class);
+        $this->command->info('OrderLines table seeded!');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaPedidos extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CrearTablaPedidos extends Migration
      */
     public function up()
     {
-        Schema::create('pedidos', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('fecha');
-            $table->string('estado');
-            $table->string('direccion');
-            $table->string('pago');
-            $table->bigInteger('usuario_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
+            $table->string('nombre')->unique();
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CrearTablaPedidos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pedidos');
+        Schema::dropIfExists('categories');
     }
 }

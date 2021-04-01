@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrearTablaLinpeds extends Migration
+class CreateOrderlinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CrearTablaLinpeds extends Migration
      */
     public function up()
     {
-        Schema::create('linpeds', function (Blueprint $table) {
+        Schema::create('orderlines', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('cantidad');
-            $table->integer('producto_id');
-            $table->bigInteger('pedido_id')->unsigned();
-            $table->foreign('pedido_id')->references('id')->on('pedidos');
+            $table->float('precioUnidad');
+            $table->bigInteger('product_id')->unsigned();
+            $table->foreign('product_id')->references('id')->on('products');
+            $table->bigInteger('order_id')->unsigned();
+            $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CrearTablaLinpeds extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linpeds');
+        Schema::dropIfExists('orderlines');
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Pedido;
-use App\Usuario;
+use App\Order;
+use App\User;
 
-class PedidosTableSeeder extends Seeder
+class OrdersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,19 +14,19 @@ class PedidosTableSeeder extends Seeder
     public function run()
     {
         //Borramos los datos de la tabla
-        DB::table('pedidos')->delete();
+        DB::table('orders')->delete();
 
         // Recuperar el segundo usuario (cliente).
-        $usuario2 = Usuario::find(2);
+        $usuario2 = User::find(2);
 
         // Añadimos una entrada a esta tabla
-        $pedido1 = new Pedido([
+        $pedido1 = new Order([
             'fecha' => date_create('2021-03-07'),
             'estado' => 'En envío',
             'direccion' => $usuario2 -> direccion,
             'pago' => $usuario2 -> pago,
         ]);
-        $pedido1->usuario()->associate($usuario2);
-        $pedido1->save();     
+        $pedido1->user()->associate($usuario2);
+        $pedido1->save();
     }
 }

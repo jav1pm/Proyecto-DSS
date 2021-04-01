@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Pedido;
+use App\Order;
 
-class Linped extends Authenticatable
+class OrderLine extends Authenticatable
 {
     use Notifiable;
 
@@ -16,12 +16,12 @@ class Linped extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'cantidad', 'producto_id', 'pedido_id'
+        'cantidad', 'precioUnidad'
     ];
 
     //Función que obtiene el pedido que que contiene una linea de pedido.
-    public function pedido() {
-        // Pedido tiene la clave ajena usuario.
-        return $this->belongsTo('App\Pedido');
+    public function order() {
+        // LineaPedido tiene la clave ajena order_id.
+        return $this->belongsTo('App\Order');
     }
 }

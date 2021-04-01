@@ -2,11 +2,12 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Pedido;
+use Illuminate\Notifications\Notifiable;
+use App\Order;
 
-class Usuario extends Authenticatable
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -28,8 +29,17 @@ class Usuario extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
     //Función que obtiene los pedidos de un usuario.
-    public function pedidos() {
-        return $this->hasMany('App\Pedido');
+    public function orders() {
+        return $this->hasMany('App\Order');
     }
 }
