@@ -19,5 +19,11 @@ class DatabaseSeeder extends Seeder
 
         $this->call(OrderLinesTableSeeder ::class);
         $this->command->info('OrderLines table seeded!');
+
+        $this->call(CategoriesTableSeeder ::class);
+        $this->command->info('OrderLines table seeded!');
+
+        $this->call(ProductsTableSeeder ::class);
+        $this->command->info('OrderLines table seeded!');
     }
 }
