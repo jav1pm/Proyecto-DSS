@@ -43,4 +43,12 @@ Route::delete('/user', function() {
 
 Route::get('/product', 'ProductController@showAll');
 
+Route::get('/product/{id}', 'ProductController@showProduct');
 
+Route::get('/order', 'OrderController@showAll');
+
+Route::get('/order/{id}', 'OrderController@showOrder');
+
+Route::get('/orderline', 'OrderLineController@showAll');
+
+Route::get('/orderline/{id}', 'OrderLineController@showOrderLine');
