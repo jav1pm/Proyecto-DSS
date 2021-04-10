@@ -52,3 +52,8 @@ Route::get('/order/{id}', 'OrderController@showOrder');
 Route::get('/orderline', 'OrderLineController@showAll');
 
 Route::get('/orderline/{id}', 'OrderLineController@showOrderLine');
+
+Route::get('/category', 'CategoryController@showAll');
+
+Route::get('/category/{nombre}', 'CategoryController@showCategory');
+
