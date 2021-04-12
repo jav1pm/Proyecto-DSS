@@ -19,9 +19,18 @@ Route::get('/', function () {
 //Devuelve un listado de usuarios
 Route::get('/user', 'UserController@showAll');
 //Devuelve un usuario con un id especifico
+Route::get('/user/createuser' , 'UserController@createUser');
+
+Route::get('/user/deleteuser', 'UserController@deleteUser');
+
+Route::post('/user', 'UserController@storeUsers')->name('users.storeUsers');
+
+Route::delete('/user/{id}', 'UserController@deleteUsers')->name('users.deleteUsers');
+
 Route::get('/user/{id}', 'UserController@showUser');
 //Llamada a la vista para añadir usuarios
-Route::get('/user/signup',function() {
+
+/*Route::get('/user/signup',function() {
 
 });
 //Llamada a la vista para borrar usuarios
@@ -39,7 +48,7 @@ Route::put('/user/{id}', function() {
 //Borramos un usuario
 Route::delete('/user', function() {
 
-});
+});*/
 
 Route::get('/product', 'ProductController@showAll');
 
