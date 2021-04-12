@@ -43,21 +43,36 @@ class UserController extends Controller
 
         ]);
 
+        return redirect()->route('users.showAll');
+
     }
 
-    public function deleteUser(){
-        return view('users/usersDelete');
+    public function editUser($id){
+        $user = User::findOrfail($id);
+        return view('users.usersEdit', [
+            'user' => $user
+        ]);
     }
 
-    public function deleteUsers($id){
+    public function updateUser(User $user){
 
-        return User::delete([
-
-            'id' => $id,
+        $user->update([
+            'nombre' => request('name'),
+            'apellidos' => request('secondnames'),
+            'email' => request('email'),
+            'password' => request('password'),
+            'telefono' => request('tlf'),
+            'esAdmin' => request('admin'),
+            'direccion' => request('direccion'),
+            'pago' => request('pago'),
 
         ]);
 
+            return redirect()->route('users.showAll');
     }
 
-    
+    public function deleteUser(User $user){
+        $user->delete();
+        return redirect()->route('users.showAll');
+    }
 }

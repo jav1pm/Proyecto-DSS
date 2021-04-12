@@ -17,17 +17,21 @@ Route::get('/', function () {
 
 //Rutas user
 //Devuelve un listado de usuarios
-Route::get('/user', 'UserController@showAll');
+Route::get('/user', 'UserController@showAll')->name('users.showAll');
 //Devuelve un usuario con un id especifico
 Route::get('/user/createuser' , 'UserController@createUser');
 
-Route::get('/user/deleteuser', 'UserController@deleteUser');
+Route::get('/user/{id}/edit' , 'UserController@editUser')->name('users.editUser');
+
+Route::patch('/user/{user}', 'UserController@updateUser')->name('users.updateUser');
 
 Route::post('/user', 'UserController@storeUsers')->name('users.storeUsers');
 
-Route::delete('/user/{id}', 'UserController@deleteUsers')->name('users.deleteUsers');
+Route::get('/user/{user}/delete', 'UserController@deleteUser')->name('users.deleteUser');
 
 Route::get('/user/{id}', 'UserController@showUser');
+
+
 //Llamada a la vista para añadir usuarios
 
 /*Route::get('/user/signup',function() {
