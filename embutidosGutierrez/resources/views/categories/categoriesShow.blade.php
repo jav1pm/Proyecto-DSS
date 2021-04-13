@@ -1,3 +1,4 @@
+
 <<!DOCTYPE html>
 <html>
 <head>
@@ -12,19 +13,17 @@
       <table class="table table-striped">
          <thead>
          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
+            <th>ID<th>
+            <th>nombre</th>
+            <th>descripcion</th>
          </tr>
          </thead>
          <tbody>
-            @foreach($categories as $category)
             <tr>
                 <td>{{ $category->id }}</td>
                 <td>{{ $category->nombre }}</td>
                 <td>{{ $category->descripcion }}</td>
             </tr>
-            @endforeach
          </tbody>
       </table>
    </div>

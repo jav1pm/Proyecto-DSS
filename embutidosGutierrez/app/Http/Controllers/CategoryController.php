@@ -11,11 +11,8 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('categories/categoriesIndex', compact('categories'));
     }
-    public function showCategory($nombre){
-        $category = Category::query()
-        ->select(['*'])
-        ->with('nombre')
-        ->get();
-        return view('categories/categoriesShow', compact('category'));
+    public function showCategory($id){
+        $category = Category::findOrFail($id);
+        return view('categories/categoriesShow', ['category' => $category]);
     }
 }

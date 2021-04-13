@@ -15,10 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Rutas user
-//Devuelve un listado de usuarios
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////RUTAS DEL CRUD DE USUARIO ////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Route::get('/user', 'UserController@showAll')->name('users.showAll');
-//Devuelve un usuario con un id especifico
+
 Route::get('/user/createuser' , 'UserController@createUser');
 
 Route::get('/user/{id}/edit' , 'UserController@editUser')->name('users.editUser');
@@ -31,32 +33,24 @@ Route::get('/user/{user}/delete', 'UserController@deleteUser')->name('users.dele
 
 Route::get('/user/{id}', 'UserController@showUser');
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// RUTAS DEL CRUD DE PRODUCTO ////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//Llamada a la vista para añadir usuarios
 
-/*Route::get('/user/signup',function() {
+Route::get('/product', 'ProductController@showAll')->name('products.showProducts');
 
-});
-//Llamada a la vista para borrar usuarios
-Route::get('/user/delete', function() {
+Route::get('/product/createproduct' , 'ProductController@createProduct');
 
-});
-//Añadimos un usuario
-Route::post('/user', function(){
-
-});
-//Modificamos un usuario dado un id
-Route::put('/user/{id}', function() {
-
-});
-//Borramos un usuario
-Route::delete('/user', function() {
-
-});*/
-
-Route::get('/product', 'ProductController@showAll');
+Route::post('/product', 'ProductController@storeProducts')->name('products.storeProducts');
 
 Route::get('/product/{id}', 'ProductController@showProduct');
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// RUTAS DEL CRUD DE PEDIDO ////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 Route::get('/order', 'OrderController@showAll');
 
@@ -68,5 +62,6 @@ Route::get('/orderline/{id}', 'OrderLineController@showOrderLine');
 
 Route::get('/category', 'CategoryController@showAll');
 
-Route::get('/category/{nombre}', 'CategoryController@showCategory');
+Route::get('/category/{id}', 'CategoryController@showCategory');
+
 
