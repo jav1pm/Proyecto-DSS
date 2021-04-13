@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('estado');
             $table->string('direccion');
             $table->string('pago');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
