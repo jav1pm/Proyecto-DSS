@@ -44,6 +44,12 @@ Route::get('/product/createproduct' , 'ProductController@createProduct');
 
 Route::post('/product', 'ProductController@storeProducts')->name('products.storeProducts');
 
+Route::get('/product/{id}/editproduct', 'ProductController@editProduct')->name('products.editProduct');
+
+Route::patch('/product/{product}', 'ProductController@updateProduct')->name('products.updateProduct');
+
+Route::get('/product/{product}/delete', 'ProductController@deleteProduct')->name('products.deleteProduct');
+
 Route::get('/product/{id}', 'ProductController@showProduct');
 
 
