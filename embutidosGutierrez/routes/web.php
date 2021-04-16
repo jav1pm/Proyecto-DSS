@@ -31,6 +31,8 @@ Route::post('/user', 'UserController@storeUsers')->name('users.storeUsers');
 
 Route::get('/user/{user}/delete', 'UserController@deleteUser')->name('users.deleteUser');
 
+Route::get('/user/filter/{name}','UserController@showUserByName');
+
 Route::get('/user/{id}', 'UserController@showUser');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,8 +86,11 @@ Route::get('/orderline/{id}', 'OrderLineController@showOrderLine');
 ///////////////////////////////////////////// RUTAS DEL CRUD DE CATEGORIA /////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/category', 'CategoryController@showAll');
+Route::get('/category', 'CategoryController@showAll')->name('categories.showCategories');
+
+Route::get('/category/{id}/delete','CategoryController@deleteCategory') -> name('categories.deleteCategory');
 
 Route::get('/category/{id}', 'CategoryController@showCategory');
+
 
 

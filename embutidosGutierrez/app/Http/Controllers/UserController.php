@@ -12,8 +12,18 @@ class UserController extends Controller
         return view('users/usersIndex', compact('users'));
     }
     public function showUser($id) {
-        $user = User::findOrfail($id);
+        $user = User::find($id);
+        if(!$user){
+            return view('users/usersNotFound');
+        }
         return view('users/usersShow',['user' => $user]);
+
+        
+    }
+
+    public function showUserByName($nombre) {
+        $users = User::all()->where('nombre',$nombre);
+        return view('users/usersIndex', compact('users'));
     }
 
     public function createUser(){

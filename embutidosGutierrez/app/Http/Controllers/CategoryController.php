@@ -11,8 +11,15 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('categories/categoriesIndex', compact('categories'));
     }
+
     public function showCategory($id){
         $category = Category::findOrFail($id);
         return view('categories/categoriesShow', ['category' => $category]);
+    }
+
+    public function deleteCategory($id){
+        $category = Category::find($id);
+        $category -> delete();
+        return redirect()->route('categories.showCategories');
     }
 }
