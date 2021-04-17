@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\OrderLine;
+use App\Orderline;
 
-class OrderLineController extends Controller
+class OrderlineController extends Controller
 {
     public function showAll(){
-        $orderlines = OrderLine::All();
+        $orderlines = Orderline::All();
         return view('orderlines/orderlinesIndex', compact('orderlines'));
     }
     public function showOrderLine($id){
-        $orderline = OrderLine::findOrfail($id);
+        $orderline = Orderline::findOrfail($id);
         return view('orderlines/orderlinesShow', ['orderline' => $orderline]);
     }
 }

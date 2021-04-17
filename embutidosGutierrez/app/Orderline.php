@@ -5,8 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Order;
+use App\Product;
 
-class OrderLine extends Authenticatable
+class Orderline extends Authenticatable
 {
     use Notifiable;
 
@@ -23,5 +24,10 @@ class OrderLine extends Authenticatable
     public function order() {
         // LineaPedido tiene la clave ajena order_id.
         return $this->belongsTo('App\Order');
+    }
+    
+    // Función que obtiene el producto perteneciente a la linea de pedido.
+    public function product() {
+        return $this->belongsTo('App\Product');
     }
 }

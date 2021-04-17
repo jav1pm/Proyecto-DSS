@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\OrderLine;
+use App\Orderline;
 use App\Order;
 use App\User;
+use App\Product;
 
 class OrderLinesTableSeeder extends Seeder
 {
@@ -14,16 +15,22 @@ class OrderLinesTableSeeder extends Seeder
      */
     public function run()
     {
-        // // Borramos los datos de la tabla
-        // DB::table('orderlines')->delete();
+        // Borramos los datos de la tabla
+        DB::table('orderlines')->delete();
 
-        // $pedido=Order::find(1);
+        // Recuperamos el primer producto
+        $producto = Product::find(1);
 
-        // //producto inventado a falta de la clase producto
-        // $linped1=new OrderLine([
-        //     'cantidad'=>'2'
-        // ]);
-        // $linped1->order()->associate($pedido);
-        // $linped1->save();
+        // Recuperamos el primer pedido
+        $pedido = Order::find(1);
+
+        //producto inventado a falta de la clase producto
+        $orderline = new Orderline([
+            'cantidad'=>'2',
+            'precioUnidad' => $producto -> precio
+        ]);
+        $orderline->product()->associate($producto);
+        $orderline->order()->associate($pedido);
+        $orderline->save();
     }
 }

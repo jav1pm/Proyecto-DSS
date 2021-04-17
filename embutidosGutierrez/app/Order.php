@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\OrderLine;
+use App\Orderline;
 use App\User;
 
 class Order extends Model
@@ -24,7 +24,7 @@ class Order extends Model
     }
 
     //Función que obtiene las líneas de pedido de un pedido.
-    public function OrderLines() {
-        return $this->hasMany('App\OrderLine');
+    public function Orderlines() {
+        return $this->hasMany('App\Orderline');
     }
 }

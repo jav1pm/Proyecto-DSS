@@ -19,7 +19,7 @@ class CreateOrderlinesTable extends Migration
             $table->float('precioUnidad');
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products');
-            $table->bigInteger('order_id')->unsigned();
+            $table->bigInteger('order_id')->unsigned()->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->timestamps();
         });
