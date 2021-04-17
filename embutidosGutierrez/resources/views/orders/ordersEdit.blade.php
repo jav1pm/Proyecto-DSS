@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Edit order</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <center>
 <h1>Editar el pedido</h1>
 
 <form method="POST" action="{{ route('orders.updateOrder', $order) }}">
@@ -6,21 +18,24 @@
         Fecha del pedido: <br>   
         <input type="text" name="fecha" value="{{ $order->fecha }}">
     </label>
-    <br>
+    <p></p>
     <label>
         Estado del pedido: <br>
         <input type="text" name="estado" value="{{ $order->estado }}">
     </label>
-    <br>
+    <p></p>
     <label>
         Direccion del pedido: <br>
         <input type="text" name="direccion" value="{{ $order->direccion }}">
     </label>
-    <br>
+    <p></p>
     <label>
         Pago del pedido <br>
         <input type="text" name="pago" value="{{ $order->pago }}">
     </label>
-    <br>
+    <p></p>
     <button>Modificar pedido</button>     <a href="{{ route('orders.deleteOrder', $order) }}">Borrar Pedido<a>
     </form>
+    </center>
+</body>
+</html>

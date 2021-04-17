@@ -40,7 +40,7 @@ class UserController extends Controller
         $direccion = request('direccion');
         $pago = request('pago');
 
-        return User::create([
+        User::create([
 
             'nombre' => $name,
             'apellidos' => $secondnames,
