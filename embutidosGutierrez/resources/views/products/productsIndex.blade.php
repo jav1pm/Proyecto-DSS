@@ -45,6 +45,23 @@
     </ul></nav>
 <?php $product ?>
 
+       <form method="POST" action="{{ route('products.buscarUnoPorId') }}">
+            @csrf
+            <label>
+            Id del Poducto a buscar: <br> 
+               <input type="text" name="id">
+            </label>
+            <button>Buscar</button>
+         </form>
+
+         <form method="POST" action="{{ route('products.buscarUnoPorNombre') }}">
+            @csrf
+            <label>
+            Nombre del producto a buscar: <br> 
+               <input type="text" name="name">
+            </label>
+            <button>Buscar</button>
+         </form>
 
 
 

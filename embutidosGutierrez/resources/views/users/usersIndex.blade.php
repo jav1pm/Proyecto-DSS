@@ -43,6 +43,15 @@
         <li><a href="localhost:8000/orderlines">Lineas de pedido</a></li>
         <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
     </ul></nav>
+
+    <form method="POST" action="{{ route('users.buscarUsuarioPorNombre') }}">
+            @csrf
+            <label>
+            Nombre del Usuario a Buscar: <br> 
+               <input type="text" name="nombre">
+            </label>
+            <button>Buscar</button>
+      </form>
    
       <h3> Lista de usuarios </h3>
       <div class="container">

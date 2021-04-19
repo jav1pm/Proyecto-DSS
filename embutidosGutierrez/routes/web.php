@@ -29,6 +29,8 @@ Route::patch('/user/{user}', 'UserController@updateUser')->name('users.updateUse
 
 Route::post('/user', 'UserController@storeUsers')->name('users.storeUsers');
 
+Route::post('/user/buscarUsuarioPorNombre', 'UserController@buscarUsuarioPorNombre')->name('users.buscarUsuarioPorNombre');
+
 Route::get('/user/{user}/delete', 'UserController@deleteUser')->name('users.deleteUser');
 
 Route::get('/user/filter/{name}','UserController@showUserByName');
@@ -45,6 +47,10 @@ Route::get('/product', 'ProductController@showAll')->name('products.showProducts
 Route::get('/product/createproduct' , 'ProductController@createProduct');
 
 Route::post('/product', 'ProductController@storeProducts')->name('products.storeProducts');
+
+Route::post('/product/bucarUnoPorId', 'ProductController@buscarUnoPorId')->name('products.buscarUnoPorId');
+
+Route::post('/product/buscarUnoPorNombre', 'ProductController@buscarUnoPorNombre')->name('products.buscarUnoPorNombre');
 
 Route::get('/product/{id}/editproduct', 'ProductController@editProduct')->name('products.editProduct');
 

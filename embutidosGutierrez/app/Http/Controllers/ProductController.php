@@ -17,8 +17,23 @@ class ProductController extends Controller
         return view('products/productsShow', ['product' => $product]);
     }
 
+    public function buscarUnoPorId(){
+
+        $id = request('id');
+        $product = Product::findOrfail($id);
+        return view('products/productsShow', ['product' => $product]);
+
+    }
+
+
     public function createProduct(){
         return view('products.productsCreate');
+    }
+
+    public function buscarUnoPorNombre() {
+        $nombre = request('name');
+        $products = Product::all()->where('nombre',$nombre);
+        return view('products/productsIndex', compact('products'));
     }
 
     public function storeProducts(){

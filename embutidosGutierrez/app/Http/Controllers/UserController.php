@@ -21,7 +21,8 @@ class UserController extends Controller
         
     }
 
-    public function showUserByName($nombre) {
+    public function buscarUsuarioPorNombre() {
+        $nombre=request('nombre');
         $users = User::all()->where('nombre',$nombre);
         return view('users/usersIndex', compact('users'));
     }
