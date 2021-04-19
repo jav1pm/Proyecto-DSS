@@ -11,8 +11,17 @@ class OrderlineController extends Controller
         $orderlines = Orderline::All();
         return view('orderlines/orderlinesIndex', compact('orderlines'));
     }
+
     public function showOrderLine($id){
         $orderline = Orderline::findOrfail($id);
         return view('orderlines/orderlinesShow', ['orderline' => $orderline]);
     }
+
+    public function deleteOrderline($id){
+        $orderline = Orderline::find($id);
+        $orderline -> delete();
+        return redirect()->route('orderlines.showOrderlines');   
+
+    }
+
 }

@@ -78,7 +78,9 @@ Route::get('/order/{id}', 'OrderController@showOrder');
 ///////////////////////////////////////////// RUTAS DEL CRUD DE LINEA DE PEDIDO ///////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/orderlines', 'OrderlineController@showAll');
+Route::get('/orderlines', 'OrderlineController@showAll')->name('orderlines.showOrderlines');
+
+Route::get('/orderlines/{id}/delete','OrderlineController@deleteOrderline');
 
 Route::get('/orderline/{id}', 'OrderlineController@showOrderLine');
 
