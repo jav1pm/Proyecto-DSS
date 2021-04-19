@@ -36,7 +36,6 @@
       }
 </style>
    <center>
-   
    <nav><ul>
         <li><a href="{{ route('products.showProducts')}}">Productos</a></li>
         <li><a href="{{ route('users.showAll')}}">Usuarios</a></li>
@@ -44,6 +43,11 @@
         <li><a href="localhost:8000/orderlines">Lineas de pedido</a></li>
         <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
     </ul></nav>
+<?php $product ?>
+
+
+
+
       <div class="container">
             <h3> Lista de productos </h3>
          <div class="container">
@@ -56,6 +60,7 @@
                   <th>Precio</th>
                   <th>Categoria</th>
                   <th>Imagen</th>
+                  <th>Editar</th>
                </tr>
                </thead>
                <tbody style="background: rgba(128, 255, 0, 0.15)">
@@ -67,6 +72,7 @@
                      <td>{{ $product -> precio }}</td>
                      <td>{{ $product -> category_id }}</td>
                      <td>{{ $product->imagen }}</td>
+                     <td><a href="{{ route('products.editProduct', $product) }}">Editar</a></td>
                   </tr>
                   @endforeach
                </tbody>

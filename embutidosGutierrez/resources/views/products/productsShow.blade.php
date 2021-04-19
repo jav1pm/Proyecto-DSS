@@ -55,6 +55,7 @@
                   <th>Precio</th>
                   <th>Categoria</th>
                   <th>Imagen</th>
+                  <th>Editar</th>
                </tr>
                </thead>
                <tbody style="background: rgba(128, 255, 0, 0.15)">
@@ -66,6 +67,7 @@
                      <td>{{ $product -> precio }}</td>
                      <td>{{ $product -> category_id }}</td>
                      <td>{{ $product->imagen }}</td>
+                     <td><a href="{{ route('products.editProduct', $product) }}">Editar</a></td>
                   </tr>
                   
                </tbody>

@@ -52,7 +52,7 @@ Route::patch('/product/{product}', 'ProductController@updateProduct')->name('pro
 
 Route::get('/product/{product}/delete', 'ProductController@deleteProduct')->name('products.deleteProduct');
 
-Route::get('/product/{id}', 'ProductController@showProduct');
+Route::get('/product/{id}', 'ProductController@showProduct')->name('products.showProduct');
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
