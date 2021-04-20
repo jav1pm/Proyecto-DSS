@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/user', 'UserController@showAll')->name('users.showAll');
 
-Route::get('/user/createuser' , 'UserController@createUser');
+Route::get('/user/createuser' , 'UserController@createUser')->name('users.createUser');
 
 Route::get('/user/{id}/edit' , 'UserController@editUser')->name('users.editUser');
 
@@ -68,7 +68,7 @@ Route::get('/product/{id}', 'ProductController@showProduct')->name('products.sho
 
 Route::get('/order', 'OrderController@showAll')->name('orders.showOrders');
 
-Route::get('/order/createorder', 'OrderController@createOrder');
+Route::get('/order/createorder', 'OrderController@createOrder')->name('orders.createOrders');
 
 Route::post('/order','OrderController@storeOrder')->name('orders.storeOrder');
 

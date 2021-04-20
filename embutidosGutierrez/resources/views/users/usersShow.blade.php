@@ -40,7 +40,7 @@
         <li><a href="{{ route('products.showProducts')}}">Productos</a></li>
         <li><a href="{{ route('users.showAll')}}">Usuarios</a></li>
         <li><a href="{{ route('orders.showOrders')}}">Pedidos</a></li>
-        <li><a href="localhost:8000/orderlines">Lineas de pedido</a></li>
+        <li><a href="{{ route('categories.showCategories')}}">Lineas de pedido</a></li>
         <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
     </ul></nav>
       <h3> Usuario </h3>
@@ -57,6 +57,7 @@
                <th>EsAdmin</th>
                <th>Direccion</th>
                <th>Pago</th>
+               <th>Editar</th>
             </tr>
             </thead>
             <tbody style="background: rgba(128, 255, 0, 0.15)">
@@ -71,6 +72,7 @@
                   <td>{{ $user->esAdmin }}</td>
                   <td>{{ $user->direccion }}</td>
                   <td>{{ $user->pago }}</td>
+                  <td><a href="{{ route('users.editUser', $user) }}">Editar</a></td>
                </tr>
               
             </tbody>

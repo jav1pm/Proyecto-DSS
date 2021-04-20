@@ -40,9 +40,11 @@
         <li><a href="{{ route('products.showProducts')}}">Productos</a></li>
         <li><a href="{{ route('users.showAll')}}">Usuarios</a></li>
         <li><a href="{{ route('orders.showOrders')}}">Pedidos</a></li>
-        <li><a href="localhost:8000/orderlines">Lineas de pedido</a></li>
+        <li><a href="{{ route('categories.showCategories')}}">Lineas de pedido</a></li>
         <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
     </ul></nav>
+    <br>
+    <a href="{{ route('orders.createOrders')}}">Crear pedido</a>
    <h3> Pedidos </h3>
    <div class="container">
       <table class="table table-striped"; border=“6px”; style="text-align:center">

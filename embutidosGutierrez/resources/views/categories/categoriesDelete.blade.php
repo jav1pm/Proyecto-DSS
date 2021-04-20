@@ -9,6 +9,13 @@
 </head>
 <body>
     <center>
+    <nav><ul>
+        <li><a href="{{ route('products.showProducts')}}">Productos</a></li>
+        <li><a href="{{ route('users.showAll')}}">Usuarios</a></li>
+        <li><a href="{{ route('orders.showOrders')}}">Pedidos</a></li>
+        <li><a href="{{ route('categories.showCategories')}}">Lineas de pedido</a></li>
+        <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
+    </ul></nav>
         <h1>Borrar categoria</h1>
 
         <form method='DELETE' action="{{ route('categories.deleteCategory', $category) }}">
