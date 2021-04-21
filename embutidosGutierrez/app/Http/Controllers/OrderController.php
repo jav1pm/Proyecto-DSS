@@ -7,8 +7,13 @@ use App\Order;
 
 class OrderController extends Controller
 {
-    public function showAll(){
-        $orders = Order::all();
+    public function showAll(Request $request){
+        $aids = $request->get('ordenarOrder');
+        if(!$aids)
+        {
+            $aids = 'id';
+        }
+        $orders = Order::orderBy($aids,'asc')->paginate(5);
         return view('orders/ordersIndex', compact('orders'));
     }
 

@@ -43,6 +43,21 @@
         <li><a href="{{ route('categories.showCategories')}}">Lineas de pedido</a></li>
         <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
     </ul></nav>
+
+    <nav class="navbar navbar-light float-right">
+         <form class="form-inline">
+            <div class="form-group">
+            <label for="ordenar">Ordenar por:</label>
+            <select id="ordenarCategory" name="ordenarCategory" [(ngModel)]="department" class="form-control">
+               <option value="id">id</option>
+               <option value="nombre">Nombre</option>
+               <option value="descripcion">Descripcion</option>
+            </select>
+            </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ordenar</button>
+         </form>
+      </nav>
+
       <h3> Lista de categorias </h3>
       <div class="container">
          <table class="table table-striped"; border=“6px”; style="text-align:center">
@@ -63,6 +78,7 @@
                @endforeach
             </tbody>
          </table>
+         {{$categories-> links()}}
       </div>
    </center>
 </body>

@@ -44,7 +44,7 @@
         <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
     </ul></nav>
 <?php $product ?>
-
+   <a href="{{ route('products.showProducts')}}">Productos</a>
        <form method="POST" action="{{ route('products.buscarUnoPorId') }}">
             @csrf
             <label>
@@ -63,7 +63,20 @@
             <button>Buscar</button>
          </form>
 
-
+      <nav class="navbar navbar-light float-right">
+         <form class="form-inline">
+            <div class="form-group">
+            <label for="ordenar">Ordenar por:</label>
+            <select id="ordenarProduct" name="ordenarProduct" [(ngModel)]="department" class="form-control">
+               <option value="id">id</option>
+               <option value="nombre">Nombre</option>
+               <option value="precio">Precio</option>
+               <option value="category_id">Categoria</option>
+            </select>
+            </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ordenar</button>
+         </form>
+      </nav>
 
       <div class="container">
             <h3> Lista de productos </h3>
@@ -94,6 +107,7 @@
                   @endforeach
                </tbody>
             </table>
+            {{$products-> links()}}
          </div>
       </center>
       

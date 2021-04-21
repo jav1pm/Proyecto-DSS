@@ -53,7 +53,22 @@
             <button>Buscar</button>
       </form>
       <a href="{{ route('users.createUser') }}">Crear usuario</a>
-   
+
+      <nav class="navbar navbar-light float-right">
+         <form class="form-inline">
+            <div class="form-group">
+            <label for="ordenar">Ordenar por:</label>
+            <select id="ordenarUser" name="ordenarUser" [(ngModel)]="department" class="form-control">
+               <option value="id">id</option>
+               <option value="nombre">Nombre</option>
+               <option value="apellidos">Apellidos</option>
+               <option value="email">Email</option>
+            </select>
+            </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ordenar</button>
+         </form>
+      </nav>
+
       <h3> Lista de usuarios </h3>
       <div class="container">
          <table class="table table-striped";  border=“6px”; style="text-align:center">
@@ -87,7 +102,9 @@
                </tr>
                @endforeach
             </tbody>
+            
          </table>
+         {{$users-> links()}}
       </div>
       
      

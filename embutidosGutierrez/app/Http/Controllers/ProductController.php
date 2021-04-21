@@ -7,8 +7,12 @@ use App\Product;
 
 class ProductController extends Controller
 {
-    public function showAll() {
-        $products = Product::all();
+    public function showAll(Request $request) {
+        $aids = $request -> get('ordenarProduct');
+        if(!$aids){
+            $aids = 'id';
+        }
+        $products = Product::orderBy($aids,'desc')->paginate(5);
         return view('products/productsIndex', compact('products'));
     }
 

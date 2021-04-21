@@ -7,8 +7,13 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function showAll() {
-        $users = User::all();
+    public function showAll(Request $request) {
+        $aids = $request->get('ordenarUser');
+        if(!$aids)
+        {
+            $aids = 'id';
+        }
+        $users = User::orderBy($aids,'asc')->paginate(5);
         return view('users/usersIndex', compact('users'));
     }
     public function showUser($id) {

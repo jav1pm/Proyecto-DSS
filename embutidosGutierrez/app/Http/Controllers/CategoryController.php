@@ -7,8 +7,12 @@ use App\Category;
 
 class CategoryController extends Controller
 {
-    public function showAll(){
-        $categories = Category::all();
+    public function showAll(Request $request){
+        $aids = $request->get('ordenarCategory');
+        if(!$aids){
+            $aids = 'id';
+        }
+        $categories = Category::orderBy($aids,'desc')->paginate(5);
         return view('categories/categoriesIndex', compact('categories'));
     }
 
