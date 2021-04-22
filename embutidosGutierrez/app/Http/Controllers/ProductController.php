@@ -28,12 +28,8 @@ class ProductController extends Controller
     public function buscarUnoPorId(){
 
         $id = request('id');
-        $product = Product::find($id);
-        if(!$product)
-        {
-            return view('notFound');
-        }
-        return view('products/productsShow', ['product' => $product]);
+        $products = Product::all()->where('id',$id);
+        return view('products/productsShowBy', compact('products'));
 
     }
 
@@ -45,7 +41,7 @@ class ProductController extends Controller
     public function buscarUnoPorNombre() {
         $nombre = request('name');
         $products = Product::all()->where('nombre',$nombre);
-        return view('products/productsShowByName', compact('products'));
+        return view('products/productsShowBy', compact('products'));
     }
 
     public function storeProducts(){
