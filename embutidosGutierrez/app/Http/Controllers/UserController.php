@@ -19,7 +19,7 @@ class UserController extends Controller
     public function showUser($id) {
         $user = User::find($id);
         if(!$user){
-            return view('users/usersNotFound');
+            return view('NotFound');
         }
         return view('users/usersShow',['user' => $user]);
 

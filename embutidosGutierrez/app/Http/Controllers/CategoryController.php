@@ -17,7 +17,11 @@ class CategoryController extends Controller
     }
 
     public function showCategory($id){
-        $category = Category::findOrFail($id);
+        $category = Category::find($id);
+        if(!$category)
+        {
+            return view('notFound');
+        }
         return view('categories/categoriesShow', ['category' => $category]);
     }
 

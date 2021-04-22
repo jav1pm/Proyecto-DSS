@@ -17,14 +17,22 @@ class ProductController extends Controller
     }
 
     public function showProduct($id){
-        $product = Product::findOrfail($id);
+        $product = Product::find($id);
+        if(!$product)
+        {
+            return view('notFound');
+        }
         return view('products/productsShow', ['product' => $product]);
     }
 
     public function buscarUnoPorId(){
 
         $id = request('id');
-        $product = Product::findOrfail($id);
+        $product = Product::find($id);
+        if(!$product)
+        {
+            return view('notFound');
+        }
         return view('products/productsShow', ['product' => $product]);
 
     }

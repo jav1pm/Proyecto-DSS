@@ -18,7 +18,11 @@ class OrderController extends Controller
     }
 
     public function showOrder($id){
-        $order = Order::findOrFail($id);
+        $order = Order::find($id);
+        if(!$order)
+        {
+            return view('notFound');
+        }
         return view('orders/ordersShow', ['order' => $order]);
     }
     

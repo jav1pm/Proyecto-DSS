@@ -18,7 +18,11 @@ class OrderlineController extends Controller
     }
 
     public function showOrderLine($id){
-        $orderline = Orderline::findOrfail($id);
+        $orderline = Orderline::find($id);
+        if(!$orderline)
+        {
+            return view('notFound');
+        }
         return view('orderlines/orderlinesShow', ['orderline' => $orderline]);
     }
 
