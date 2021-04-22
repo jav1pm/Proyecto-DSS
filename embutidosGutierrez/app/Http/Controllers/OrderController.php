@@ -8,12 +8,12 @@ use App\Order;
 class OrderController extends Controller
 {
     public function showAll(Request $request){
-        $aids = $request->get('ordenarOrder');
-        if(!$aids)
+        $res = $request->get('ordenarOrder');
+        if(!$res)
         {
-            $aids = 'id';
+            $res = 'id';
         }
-        $orders = Order::orderBy($aids,'asc')->paginate(5);
+        $orders = Order::orderBy($res,'asc')->paginate(5);
         return view('orders/ordersIndex', compact('orders'));
     }
 

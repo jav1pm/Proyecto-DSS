@@ -8,11 +8,11 @@ use App\Category;
 class CategoryController extends Controller
 {
     public function showAll(Request $request){
-        $aids = $request->get('ordenarCategory');
-        if(!$aids){
-            $aids = 'id';
+        $res = $request->get('ordenarCategory');
+        if(!$res){
+            $res = 'id';
         }
-        $categories = Category::orderBy($aids,'desc')->paginate(5);
+        $categories = Category::orderBy($res,'desc')->paginate(5);
         return view('categories/categoriesIndex', compact('categories'));
     }
 

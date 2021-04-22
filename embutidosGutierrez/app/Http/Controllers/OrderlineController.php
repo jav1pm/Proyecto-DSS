@@ -8,12 +8,12 @@ use App\Orderline;
 class OrderlineController extends Controller
 {
     public function showAll(Request $request){
-        $aids = $request->get('ordenarOrderlines');
-        if(!$aids)
+        $res = $request->get('ordenarOrderlines');
+        if(!$res)
         {
-            $aids = 'id';
+            $res = 'id';
         }
-        $orderlines = Orderline::orderBy($iaids,'asc')->paginate(5);
+        $orderlines = Orderline::orderBy($res,'asc')->paginate(5);
         return view('orderlines/orderlinesIndex', compact('orderlines'));
     }
 

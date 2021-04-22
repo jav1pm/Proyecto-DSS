@@ -8,7 +8,7 @@
    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 </head>
 <style>
-   ul{
+   menu ul{
       margin:0;
       padding:0;
       box-sizing:border-box;
@@ -36,13 +36,15 @@
 </style>
 <body>
    <center>
+   </div class = "menu">
    <nav><ul>
         <li><a href="{{ route('products.showProducts')}}">Productos</a></li>
         <li><a href="{{ route('users.showAll')}}">Usuarios</a></li>
         <li><a href="{{ route('orders.showOrders')}}">Pedidos</a></li>
-        <li><a href="{{ route('categories.showCategories')}}">Lineas de pedido</a></li>
+        <li><a href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a></li>
         <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
     </ul></nav>
+    </div>
 
     <nav class="navbar navbar-light float-right">
          <form class="form-inline">

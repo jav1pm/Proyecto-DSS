@@ -9,7 +9,7 @@
 </head>
 <body>
 <style>
-   ul{
+   menu ul{
       margin:0;
       padding:0;
       box-sizing:border-box;
@@ -38,12 +38,14 @@
 <body>
 <center>
 <nav><ul>
+   <div class = "menu">
         <li><a href="{{ route('products.showProducts')}}">Productos</a></li>
         <li><a href="{{ route('users.showAll')}}">Usuarios</a></li>
         <li><a href="{{ route('orders.showOrders')}}">Pedidos</a></li>
-        <li><a href="{{ route('categories.showCategories')}}">Lineas de pedido</a></li>
+        <li><a href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a></li>
         <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
-    </ul></nav>
+      </ul></nav>
+    </div>
 
     <nav class="navbar navbar-light float-right">
          <form class="form-inline">
@@ -67,8 +69,6 @@
             <th>ID</th>
             <th>Cantidad</th>
             <th>PrecioUnidad</th>
-            <th>Direccion</th>
-            <th>Pago</th>
          </tr>
          </thead>
          <tbody style="background: rgba(128, 255, 0, 0.15)">

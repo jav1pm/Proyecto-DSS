@@ -8,7 +8,7 @@
    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 </head>
 <style>
-   ul{
+   menu ul{
       margin:0;
       padding:0;
       box-sizing:border-box;

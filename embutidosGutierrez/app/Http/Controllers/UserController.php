@@ -8,12 +8,12 @@ use App\User;
 class UserController extends Controller
 {
     public function showAll(Request $request) {
-        $aids = $request->get('ordenarUser');
-        if(!$aids)
+        $res = $request->get('ordenarUser');
+        if(!$res)
         {
-            $aids = 'id';
+            $res = 'id';
         }
-        $users = User::orderBy($aids,'asc')->paginate(5);
+        $users = User::orderBy($res,'asc')->paginate(5);
         return view('users/usersIndex', compact('users'));
     }
     public function showUser($id) {
@@ -29,7 +29,7 @@ class UserController extends Controller
     public function buscarUsuarioPorNombre() {
         $nombre=request('nombre');
         $users = User::all()->where('nombre',$nombre);
-        return view('users/usersIndex', compact('users'));
+        return view('users/usersShowByName', compact('users'));
     }
 
     public function createUser(){

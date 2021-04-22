@@ -105,7 +105,6 @@
                @endforeach
             </tbody> 
          </table>
-         {{$users-> links()}}
       </div>  
    </center>
 </body>

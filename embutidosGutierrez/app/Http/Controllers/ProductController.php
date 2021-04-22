@@ -8,11 +8,11 @@ use App\Product;
 class ProductController extends Controller
 {
     public function showAll(Request $request) {
-        $aids = $request -> get('ordenarProduct');
-        if(!$aids){
-            $aids = 'id';
+        $res = $request -> get('ordenarProduct');
+        if(!$res){
+            $res = 'id';
         }
-        $products = Product::orderBy($aids,'desc')->paginate(5);
+        $products = Product::orderBy($res,'asc')->paginate(5);
         return view('products/productsIndex', compact('products'));
     }
 
@@ -37,7 +37,7 @@ class ProductController extends Controller
     public function buscarUnoPorNombre() {
         $nombre = request('name');
         $products = Product::all()->where('nombre',$nombre);
-        return view('products/productsIndex', compact('products'));
+        return view('products/productsShowByName', compact('products'));
     }
 
     public function storeProducts(){

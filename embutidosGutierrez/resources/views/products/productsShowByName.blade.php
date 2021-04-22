@@ -1,13 +1,13 @@
-
 <!DOCTYPE html>
 <html>
 <head>
    <meta charset="utf-8" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Product search</title>
+   <title>Products Data</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 </head>
+<body>
 <style>
    menu ul{
       margin:0;
@@ -35,7 +35,6 @@
          color:#000;
       }
 </style>
-<body>
    <center>
    <div class = "menu">
       <nav><ul>
@@ -45,10 +44,46 @@
          <li><a href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a></li>
          <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
       </ul></nav>
-   </div>
-         <h3> Producto </h3>
+      </div>
+<?php $product ?>
+   
+       <form method="POST" action="{{ route('products.buscarUnoPorId') }}">
+            @csrf
+            <label>
+            Id del Poducto a buscar: <br> 
+               <input type="text" name="id">
+            </label>
+            <button>Buscar</button>
+         </form>
+
+         <form method="POST" action="{{ route('products.buscarUnoPorNombre') }}">
+            @csrf
+            <label>
+            Nombre del producto a buscar: <br> 
+               <input type="text" name="name">
+            </label>
+            <button>Buscar</button>
+         </form>
+
+      <nav class="navbar navbar-light float-right">
+         <form class="form-inline">
+            <div class="form-group">
+            <label for="ordenar">Ordenar por:</label>
+            <select id="ordenarProduct" name="ordenarProduct" [(ngModel)]="department" class="form-control">
+               <option value="id">id</option>
+               <option value="nombre">Nombre</option>
+               <option value="precio">Precio</option>
+               <option value="category_id">Categoria</option>
+            </select>
+            </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ordenar</button>
+         </form>
+      </nav>
+
       <div class="container">
-      <table class="table table-striped";  border=“6px”; style="text-align:center">
+            <h3> Lista de productos </h3>
+         <div class="container">
+            <table class="table table-striped";  border=“6px”; style="text-align:center">
                <thead style="background: rgba(128, 255, 0, 0.4)">
                <tr>
                   <th>ID</th>
@@ -61,7 +96,7 @@
                </tr>
                </thead>
                <tbody style="background: rgba(128, 255, 0, 0.15)">
-                  
+                  @foreach($products as $product)
                   <tr>
                      <td>{{ $product->id }}</td>
                      <td>{{ $product->nombre }}</td>
@@ -71,10 +106,11 @@
                      <td>{{ $product->imagen }}</td>
                      <td><a href="{{ route('products.editProduct', $product) }}">Editar</a></td>
                   </tr>
-                  
+                  @endforeach
                </tbody>
             </table>
-      </div>
-   </center>
+         </div>
+      </center>
+      
 </body>
 </html>
