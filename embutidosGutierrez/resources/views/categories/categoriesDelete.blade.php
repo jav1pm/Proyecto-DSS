@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-   <meta charset="utf-8" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Products Data</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-</head>
+@extends('layouts/menu')
+@section('contentmenu')
 <body>
     <center>
-    <div class = "menu">
-      <nav><ul>
-         <li><a href="{{ route('products.showProducts')}}">Productos</a></li>
-         <li><a href="{{ route('users.showAll')}}">Usuarios</a></li>
-         <li><a href="{{ route('orders.showOrders')}}">Pedidos</a></li>
-         <li><a href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a></li>
-         <li><a href="{{ route('categories.showCategories')}}">Categorias</a></li>
-      </ul></nav>
-     </div>
+
         <h1>Borrar categoria</h1>
 
         <form method='DELETE' action="{{ route('categories.deleteCategory', $category) }}">
@@ -31,3 +16,4 @@
         </form>
     <center>
 </body>
+@endsection
