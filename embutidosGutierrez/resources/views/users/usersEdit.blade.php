@@ -1,3 +1,4 @@
+@extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
 <body>
@@ -51,5 +52,7 @@
             <a href="{{ route('users.deleteUser', $user) }}">Borrar<a>
             </form>
         <center>
+        @endsection
+@section('contentfooter')
+@endsection     
 </body>
-@endsection

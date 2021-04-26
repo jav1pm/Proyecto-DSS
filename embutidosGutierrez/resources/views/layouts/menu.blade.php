@@ -11,20 +11,20 @@
     <title>Embutidos Gutierrez</title>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FA8072;">
+  <nav class="navbar navbar-expand-lg navbar-light "style="background-color:F5F5F5;">
       <div class="container-fluid">
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <a class="navbar-brand"  href="{{ route('categories.showCategories')}}">Categorias</a>
-            <a class="navbar-brand" style="font-size 50px" href="{{ route('products.showProducts')}}">Productos</a>
-            <a class="navbar-brand" href="{{ route('users.showAll')}}">Usuarios</a>
-            <a class="navbar-brand" href="{{ route('orders.showOrders')}}">Pedidos</a>
-            <a class="navbar-brand" href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a>
-            <a class="navbar-brand" href="{{ route('categories.showCategories')}}">Categorias</a>
+            <a class="navbar-brand" href="{{ route('categories.showCategories')}}">Home</a>
+            <a class="nav-link" style="font-size 50px" href="{{ route('products.showProducts')}}">Productos</a>
+            <a class="nav-link" href="{{ route('users.showAll')}}">Usuarios</a>
+            <a class="nav-link" href="{{ route('orders.showOrders')}}">Pedidos</a>
+            <a class="nav-link" href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a>
+            <a class="nav-link" href="{{ route('categories.showCategories')}}">Categorias</a>
             </ul>
             <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
          </div>
       </div>

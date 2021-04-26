@@ -1,5 +1,7 @@
+@extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
+
 <body>
    <center>
       <h3> Usuario </h3>
@@ -39,5 +41,7 @@
       </div>
    </center>
 </body>
-</html>
 @endsection
+@section('contentfooter')
+@endsection 
+</html>

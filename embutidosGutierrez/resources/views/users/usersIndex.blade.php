@@ -1,6 +1,8 @@
 <body>
+@extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
+
    <center>
       <h3> Usuario </h3>
       <div class="container">
@@ -38,7 +40,9 @@
          </table>
       </div>
    </center>
-
+   @endsection
+@section('contentfooter')
+@endsection
 </body>
 </html>
-@endsection
+

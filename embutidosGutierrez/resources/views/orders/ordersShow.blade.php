@@ -1,3 +1,4 @@
+@extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
 <body>
@@ -42,3 +43,5 @@
 </body>
 </html>
 @endsection
+@section('contentfooter')
+@endsection 
