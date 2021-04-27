@@ -16,6 +16,15 @@ class ProductController extends Controller
         return view('products/productsIndex', compact('products'));
     }
 
+    public function tienda(Request $request) {
+        $res = $request -> get('ordenarProduct');
+        if(!$res){
+            $res = 'id';
+        }
+        $products = Product::orderBy($res,'asc')->paginate(8);
+        return view('cliente/tienda', compact('products'));
+    }
+
     public function showProduct($id){
         $product = Product::find($id);
         if(!$product)

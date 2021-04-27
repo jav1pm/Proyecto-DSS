@@ -64,7 +64,7 @@
                      <td>{{ $product -> precio }}</td>
                      <td>{{ $product -> category_id }}</td>
                      <td>{{ $product->imagen }}</td>
-                     <td><a class="btn btn-primary stretched-link" href="{{ route('products.editProduct', $product) }}">Editar</a></td>
+                     <td><a class="btn btn-primary"  href="{{ route('products.editProduct', $product) }}">Editar</a></td>
                   </tr>
                   @endforeach
                </tbody>

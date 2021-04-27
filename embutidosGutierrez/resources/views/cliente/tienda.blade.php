@@ -11,96 +11,80 @@
         </blockquote>
     </div>
     <br>
-
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-1 align-self-start border border-primary">
-                <div class="form-check mb-1">
+        <center>
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                     Chorizos
                     </label>
                 </div>
-                <div class="form-check mb-1">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
                     <label class="form-check-label" for="defaultCheck2">
                     Salchichones
                     </label>
                 </div>
-                <div class="form-check mb-1">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                     Embuchados
                     </label>
                 </div>
-                <div class="form-check mb-1">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
                     <label class="form-check-label" for="defaultCheck2">
                     Quesos
                     </label>
                 </div>
-                <div class="form-check mb-1">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
                     Lomos
                     </label>
                 </div>
-                <div class="form-check mb-1">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
                     <label class="form-check-label" for="defaultCheck2">
                     Jamones
                     </label>
                 </div>
-                <div class="form-check mb-1">
+                <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
                     <label class="form-check-label" for="defaultCheck2">
                     Otros
                     </label>
                 </div>
-                <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                <select>
                     <option selected>Ordenar por:</option>
                     <option value="1">Mas caros</option>
                     <option value="2">Mas baratos</option>
                 </select>
-
-            </div>
-            <div class="col align-self-end border border-primary">
+                
+            </center>
+    </div>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+        @foreach($products as $product)
+            <div class="col-lg-3 col-mg-5 col-sm-12">
             
-                <div class="card" style="width: 18rem;">
-                    <img src="https://laexquisitadenin.com/6292-home_default/1-4-empanada-bonito.jpg" class="card-img-top" alt="...">
+                <div class="card">
+                    <img src={{ $product->imagen }} class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Empanada gallega</h5>
-                        <p class="card-text">30€/Kg</p>
+                        <h5 class="card-title">{{ $product->nombre }}</h5>
+                        <p class="card-text">{{ $product -> precio }}</p>
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="https://laexquisitadenin.com/6292-home_default/1-4-empanada-bonito.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Empanada gallega</h5>
-                        <p class="card-text">30€/Kg</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="https://laexquisitadenin.com/6292-home_default/1-4-empanada-bonito.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Empanada gallega</h5>
-                        <p class="card-text">30€/Kg</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <img src="https://laexquisitadenin.com/6292-home_default/1-4-empanada-bonito.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Empanada gallega</h5>
-                        <p class="card-text">30€/Kg</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            
+                
             </div>
+            @endforeach
         </div>
+        <br>
+        <center>
+            {{$products-> links()}}
+        </center>
     </div>
 
 
