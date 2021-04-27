@@ -11,6 +11,7 @@
     <title>Embutidos Gutierrez</title>
   </head>
   <body>
+ 
   <nav class="navbar navbar-expand-lg navbar-light "style="background-color:F5F5F5;">
       <div class="container-fluid">
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -27,8 +28,12 @@
             <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
          </div>
+         <br>
+      <br>
       </div>
+
       </nav>
+
       @yield('contentmenu')
 
     
