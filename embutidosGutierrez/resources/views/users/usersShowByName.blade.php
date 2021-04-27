@@ -1,7 +1,8 @@
+
+<body>
 @extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
-<body>
    <center>
     <form method="POST" action="{{ route('users.buscarUsuarioPorNombre') }}">
             @csrf
@@ -57,7 +58,7 @@
                   <td>{{ $user->esAdmin }}</td>
                   <td>{{ $user->direccion }}</td>
                   <td>{{ $user->pago }}</td>
-                  <td><a href="{{ route('users.editUser', $user) }}">Editar</a></td>
+                  <td><a class="btn btn-primary" href="{{ route('users.editUser', $user) }}">Editar</a></td>
                </tr>
                @endforeach
             </tbody> 

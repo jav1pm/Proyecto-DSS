@@ -1,8 +1,9 @@
+
+
+<body>
 @extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
-
-<body>
    <center>
       <h3> Usuario </h3>
       <div class="container">
@@ -33,7 +34,7 @@
                   <td>{{ $user->esAdmin }}</td>
                   <td>{{ $user->direccion }}</td>
                   <td>{{ $user->pago }}</td>
-                  <td><a href="{{ route('users.editUser', $user) }}">Editar</a></td>
+                  <td><a class="btn btn-primary" href="{{ route('users.editUser', $user) }}">Editar</a></td>
                </tr>
               
             </tbody>

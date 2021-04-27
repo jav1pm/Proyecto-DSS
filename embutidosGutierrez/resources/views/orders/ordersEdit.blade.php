@@ -1,7 +1,8 @@
+
+<body>
 @extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
-<body>
     <center>
 
 <h1>Editar el pedido</h1>
@@ -28,7 +29,7 @@
         <input type="text" name="pago" value="{{ $order->pago }}">
     </label>
     <p></p>
-    <button>Modificar pedido</button>     <a href="{{ route('orders.deleteOrder', $order) }}">Borrar Pedido<a>
+    <button class="btn btn-dark">Modificar pedido</button>     <a class="btn btn-danger" href="{{ route('orders.deleteOrder', $order) }}">Borrar Pedido<a>
     </form>
     </center>
 </body>

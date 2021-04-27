@@ -1,7 +1,8 @@
+
+<body>
 @extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
-<body>
     <center>
     <h1>Editar el producto</h1>
 
@@ -32,7 +33,7 @@
             <input type="text" name="categoria" value="{{ $product->category_id }}">
         </label>
         <p></p> 
-        <button>Editar Producto</button>     <a href="{{ route('products.deleteProduct', $product) }}">Borrar Producto</a>
+        <button class="btn btn-dark">Editar Producto</button>     <a class="btn btn-danger" href="{{ route('products.deleteProduct', $product) }}">Borrar Producto</a>
         </form>
     <center>
 </body>

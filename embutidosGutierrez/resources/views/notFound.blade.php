@@ -1,3 +1,4 @@
+<body>
 @extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')

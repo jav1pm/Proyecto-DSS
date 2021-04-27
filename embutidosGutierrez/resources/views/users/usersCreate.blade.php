@@ -1,7 +1,8 @@
+
+<body>
 @extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
-<body>
     <center>
 
         <h1> Crear nuevo usuario</h1>
@@ -48,7 +49,7 @@
                 <input type="text" name="pago">
             </label>
             <p></p> 
-            <button>Crear Usuario</button>
+            <button class="btn btn-primary">Crear Usuario</button>
             </form>
         <center>
 </body>

@@ -15,7 +15,7 @@
       <div class="container-fluid">
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <a class="navbar-brand" href="{{ route('categories.showCategories')}}">Home</a>
+            <a class="navbar-brand" href="{{ route('home')}}">Home</a>
             <a class="nav-link" style="font-size 50px" href="{{ route('products.showProducts')}}">Productos</a>
             <a class="nav-link" href="{{ route('users.showAll')}}">Usuarios</a>
             <a class="nav-link" href="{{ route('orders.showOrders')}}">Pedidos</a>

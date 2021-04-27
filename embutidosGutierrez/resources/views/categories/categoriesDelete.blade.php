@@ -1,7 +1,8 @@
+
+<body>
 extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
-<body>
     <center>
 
         <h1>Borrar categoria</h1>
@@ -13,7 +14,7 @@ extends('layouts/footer')
                 <input type="text" id="id" value="{{ $category->id }}">
             </label>
             <p></p>
-            <button>Borrar categoria</button>
+            <button class="btn btn-danger">Borrar categoria</button>
         </form>
     <center>
 </body>

@@ -1,7 +1,8 @@
+
+<body>
 @extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
-<body>
    <center>
          <h3> Producto </h3>
       <div class="container">
@@ -26,7 +27,7 @@
                      <td>{{ $product -> precio }}</td>
                      <td>{{ $product -> category_id }}</td>
                      <td>{{ $product->imagen }}</td>
-                     <td><a href="{{ route('products.editProduct', $product) }}">Editar</a></td>
+                     <td><a class="btn btn-primary stretched-link" href="{{ route('products.editProduct', $product) }}">Editar</a></td>
                   </tr>
                   
                </tbody>

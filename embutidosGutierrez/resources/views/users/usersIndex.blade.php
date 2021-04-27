@@ -33,7 +33,7 @@
                   <td>{{ $user->esAdmin }}</td>
                   <td>{{ $user->direccion }}</td>
                   <td>{{ $user->pago }}</td>
-                  <td><a href="{{ route('users.editUser', $user) }}">Editar</a></td>
+                  <td><a class="btn btn-primary" href="{{ route('users.editUser', $user) }}">Editar</a></td>
                </tr>
                @endforeach
             </tbody>

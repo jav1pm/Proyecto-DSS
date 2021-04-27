@@ -1,7 +1,8 @@
+
+<body>
 @extends('layouts/footer')
 @extends('layouts/menu')
 @section('contentmenu')
-<body>
    <center>
         <h1>Agregar nuevo producto</h1>
 
@@ -32,7 +33,7 @@
             <input type="text" name="categoria">
             </label>
             <p></p>
-            <button>Añadir Producto</button>
+            <button class="btn btn-primary">Añadir Producto</button>
             </form>
             
    </center>
