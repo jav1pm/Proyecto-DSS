@@ -67,8 +67,7 @@
     <div class="container-fluid">
         <div class="row">
         @foreach($products as $product)
-            <div class="col-lg-3 col-mg-5 col-sm-12">
-            
+            <div class="col-lg-2 col-mg-5 col-sm-12">
                 <div class="card">
                     <img src={{ $product->imagen }} class="card-img-top" alt="...">
                     <div class="card-body">
@@ -77,7 +76,6 @@
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
-                
             </div>
             @endforeach
         </div>
@@ -85,6 +83,7 @@
         <center>
             {{$products-> links()}}
         </center>
+        
     </div>
 
 

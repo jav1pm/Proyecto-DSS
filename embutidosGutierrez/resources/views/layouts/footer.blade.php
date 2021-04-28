@@ -12,7 +12,7 @@
   </head>
   <body>
   <footer class="container-fluid" style="background-color:F5F5F5;">
-  <br>
+    <br>
         <div class="container-fluid">
             <div class="row">
                 <div class="col align-self-center">
@@ -58,6 +58,13 @@
             </div>
         </div>
         <br>
+        <center>
+        <div class="container-fluid">
+            <p><b>Aviso de Copyright</b></p>
+            <p>Todo aquel creador de una obra intelectual por el hecho de ser el autor posee inicialmente los derechos de Copyright de esa obra, aun así es muy recomendable mostrar el aviso de Copyright.</p>
+            <p><b>© 2021 Embutidos Gutierrez</b></p>
+        </div>
+        </center>
         </footer>
 
       @yield('contentfooter')

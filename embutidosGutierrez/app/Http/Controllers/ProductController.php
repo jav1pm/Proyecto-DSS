@@ -21,7 +21,7 @@ class ProductController extends Controller
         if(!$res){
             $res = 'id';
         }
-        $products = Product::orderBy($res,'asc')->paginate(8);
+        $products = Product::orderBy($res,'asc')->paginate(12);
         return view('cliente/tienda', compact('products'));
     }
 

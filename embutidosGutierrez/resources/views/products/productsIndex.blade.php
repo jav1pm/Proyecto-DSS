@@ -4,48 +4,59 @@
 @extends('layouts/menu')
 @section('contentmenu')
    <center>
+   <br>
+   <div class="container-fluid">
+      <div class="row justify-content-center">
+         <div class="col ">
+            <form method="POST" action="{{ route('products.buscarUnoPorId') }}">
+               @csrf
+               
+               <div class="mb-3">
+                  <input type="text" name="id" placeholder="Id del Poducto">
+                  <button class="btn btn-dark">Buscar</button>
+               </div>
+               
+            </form>
+         </div>
+         <div class="col ">
+            <form method="POST" action="{{ route('products.buscarUnoPorNombre') }}">
+               @csrf
+               <div class="mb-3">
+               
+                  <input type="text" name="name" placeholder="Nombre del Poducto">
+                  <button class="btn btn-dark">Buscar</button>
+               </div>
+            </form>
+         </div>
+         
 
-<?php $product ?>
+      </div>
+      <div class="row justify-content-center">
+         <div class="col-3 ">
+            <form class="form-inline">
+               <div class="form-group">
+                  <label for="ordenar">Ordenar por:</label>
+                  <select class="form-select" multiple aria-label="multiple select example" id="ordenarProduct" name="ordenarProduct">
+                     <option value="id">id</option>
+                     <option value="nombre">Nombre</option>
+                     <option value="precio">Precio</option>
+                     <option value="category_id">Categoria</option>
+                  </select>
+               </div>
+               
+               <button class="btn btn-dark mt-2" type="submit">Ordenar</button>
+            </form>
+         </div>
+      </div>
+   </div>
    
-       <form method="POST" action="{{ route('products.buscarUnoPorId') }}">
-            @csrf
-            <label>
-            Id del Poducto a buscar: <br> 
-               <input type="text" name="id">
-            </label>
-            <button>Buscar</button>
-         </form>
-
-         <form method="POST" action="{{ route('products.buscarUnoPorNombre') }}">
-            @csrf
-            <label>
-            Nombre del producto a buscar: <br> 
-               <input type="text" name="name">
-            </label>
-            <button>Buscar</button>
-         </form>
-
-      <nav class="navbar navbar-light float-right">
-         <form class="form-inline">
-            <div class="form-group">
-            <label for="ordenar">Ordenar por:</label>
-            <select id="ordenarProduct" name="ordenarProduct" [(ngModel)]="department" class="form-control">
-               <option value="id">id</option>
-               <option value="nombre">Nombre</option>
-               <option value="precio">Precio</option>
-               <option value="category_id">Categoria</option>
-            </select>
-            </div>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ordenar</button>
-         </form>
-      </nav>
-
+       
       <div class="container">
             <h3> Lista de productos </h3>
          <div class="container">
-            <table class="table table-striped";  border=“6px”; style="text-align:center">
-               <thead style="background: rgba(128, 255, 0, 0.4)">
-               <tr>
+            <table class="table table-striped  ";  border=“6px”; style="text-align:center">
+               <thead style="background: #ff8000">
+               <tr >
                   <th>ID</th>
                   <th>Nombre</th>
                   <th>Descripcion</th>
@@ -55,16 +66,16 @@
                   <th>Editar</th>
                </tr>
                </thead>
-               <tbody style="background: rgba(128, 255, 0, 0.15)">
+               <tbody>
                   @foreach($products as $product)
-                  <tr>
+                  <tr class="table-warning">
                      <td>{{ $product->id }}</td>
                      <td>{{ $product->nombre }}</td>
                      <td>{{ $product->descripcion }}</td>
                      <td>{{ $product -> precio }}</td>
                      <td>{{ $product -> category_id }}</td>
                      <td>{{ $product->imagen }}</td>
-                     <td><a class="btn btn-primary"  href="{{ route('products.editProduct', $product) }}">Editar</a></td>
+                     <td><a class="btn btn-dark"  href="{{ route('products.editProduct', $product) }}">Editar</a></td>
                   </tr>
                   @endforeach
                </tbody>
