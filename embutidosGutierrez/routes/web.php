@@ -50,7 +50,7 @@ Route::get('/user/{id}', 'UserController@showUser');
 
 Route::get('/product', 'ProductController@showAll')->name('products.showProducts');
 
-Route::get('/product/createproduct' , 'ProductController@createProduct');
+Route::get('/product/createproduct' , 'ProductController@createProduct')->name('products.createProducts');
 
 Route::post('/product', 'ProductController@storeProducts')->name('products.storeProducts');
 

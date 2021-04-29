@@ -6,7 +6,7 @@
    <center>
    <br>
    <div class="container-fluid">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center align-items-center">
          <div class="col ">
             <form method="POST" action="{{ route('products.buscarUnoPorId') }}">
                @csrf
@@ -28,14 +28,9 @@
                </div>
             </form>
          </div>
-         
-
-      </div>
-      <div class="row justify-content-center">
-         <div class="col-3 ">
-            <form class="form-inline">
+         <div class="col">
+         <form class="form-inline">
                <div class="form-group">
-                  <label for="ordenar">Ordenar por:</label>
                   <select class="form-select" multiple aria-label="multiple select example" id="ordenarProduct" name="ordenarProduct">
                      <option value="id">id</option>
                      <option value="nombre">Nombre</option>
@@ -43,18 +38,28 @@
                      <option value="category_id">Categoria</option>
                   </select>
                </div>
-               
                <button class="btn btn-dark mt-2" type="submit">Ordenar</button>
             </form>
+            </div>
+         
+
+      </div>
+      <div class="row justify-content-center align-items-center">
+         <div class="d-grid gap-2 col-3 mx-auto">  
+            <a class="btn btn-dark" href="{{ route('products.showProducts') }}" type="button">Cancelar filtrado</a>
+         </div>
+         <div class="d-grid gap-2 col-3 mx-auto">  
+            <a class="btn btn-dark" href="{{ route('products.createProducts') }}" type="button">Añadir producto</a>
          </div>
       </div>
+      
    </div>
    
        
-      <div class="container">
+      <div class="container-fluid">
             <h3> Lista de productos </h3>
-         <div class="container">
-            <table class="table table-striped  ";  border=“6px”; style="text-align:center">
+         <div class="container-fluid">
+            <table class="table table-hover ";  border=“6px”; style="text-align:center">
                <thead style="background: #ff8000">
                <tr >
                   <th>ID</th>
@@ -82,6 +87,7 @@
             </table>
             {{$products-> links()}}
          </div>
+      </div>
       </center>
       
 </body>

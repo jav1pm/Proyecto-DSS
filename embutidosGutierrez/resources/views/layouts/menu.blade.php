@@ -11,7 +11,7 @@
     <title>Embutidos Gutierrez</title>
   </head>
   <body>
- 
+  <!-- menu -->
   <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light "style="background-color:F5F5F5;">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,13 +19,17 @@
       <div class="container-fluid">
          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <a class="navbar-brand" href="{{ route('home')}}">Home</a>
-              <a class="nav-link" style="font-size 50px" href="{{ route('products.showProducts')}}">Productos</a>
+            <!-- elementos del menu -->
+              <a class="navbar-brand" href="{{ route('home')}}" >
+                <img  width="40" height="34"  src=./imagenes/logo.png>
+              </a>
+              <a class="nav-link" href="{{ route('products.showProducts')}}">Productos</a>
               <a class="nav-link" href="{{ route('users.showAll')}}">Usuarios</a>
               <a class="nav-link" href="{{ route('orders.showOrders')}}">Pedidos</a>
               <a class="nav-link" href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a>
               <a class="nav-link" href="{{ route('categories.showCategories')}}">Categorias</a>
             </ul>
+            <!-- login y carrito -->
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
               <a class="navbar-brand" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">

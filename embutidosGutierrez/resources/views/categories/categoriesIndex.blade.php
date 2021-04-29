@@ -4,25 +4,41 @@
 @extends('layouts/menu')
 @section('contentmenu')
    <center>
-
-    <nav class="navbar navbar-light float-right">
+   <br>
+<div class="container-fluid">
+   <div class="row justify-content-center align-items-center">
+   <div class="col">
          <form class="form-inline">
-            <div class="form-group">
-            <label for="ordenar">Ordenar por:</label>
-            <select id="ordenarCategory" name="ordenarCategory" [(ngModel)]="department" class="form-control">
+            <div class=" col-3 form-group">
+            
+            <select id="ordenarCategory"  multiple aria-label="multiple select example" name="ordenarCategory" [(ngModel)]="department" class="form-select">
                <option value="id">id</option>
                <option value="nombre">Nombre</option>
                <option value="descripcion">Descripcion</option>
             </select>
             </div>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ordenar</button>
+            <button class="btn btn-dark  my-2 my-sm-0" type="submit">Ordenar</button>
          </form>
-      </nav>
+      </div>
+      <div class="col">
+      <div class="d-grid gap-2 col-3 mx-auto">  
+            <a class="btn btn-dark" href="{{ route('orderlines.showOrderlines') }}" type="button">Cancelar filtrado</a>
+         </div>
+      </div>
+   </div>
+</div>
+
+         <form class="form-inline">
+            <div class="form-group">
+            
+            
+         </form>
+
 
       <h3> Lista de categorias </h3>
-      <div class="container">
-         <table class="table table-striped"; border=“6px”; style="text-align:center">
-            <thead style="background: rgba(128, 255, 0, 0.4)">
+      <div class="container-fluid">
+            <table class="table table-hover ";  border=“6px”; style="text-align:center">
+               <thead style="background: #ff8000">
             <tr>
                <th>ID</th>
                <th>Nombre</th>
@@ -31,7 +47,7 @@
             </thead>
             <tbody style="background: rgba(128, 255, 0, 0.15)">
                @foreach($categories as $category)
-               <tr>
+               <tr class="table-warning">
                   <td>{{ $category->id }}</td>
                   <td>{{ $category->nombre }}</td>
                   <td>{{ $category->descripcion }}</td>

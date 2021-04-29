@@ -5,79 +5,99 @@
 
 
     <div class="container-fluid">
+    <hr>
         <h1 class="display-3">Charcuteria</h1>
         <blockquote class="blockquote">
             <p class="p2">En nuestra tienda contamos con charcutería, donde encontrarás embutidos de gran calidad. Jamón serrano, jamón ibérico o de bellota, quesos, chorizo... Los productos más tradicionales de nuestra gastronomía.</p>
         </blockquote>
+        <hr>
     </div>
     <br>
-    <div class="container-fluid">
-        <center>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                    Chorizos
-                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                    Salchichones
-                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                    Embuchados
-                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                    Quesos
-                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                    Lomos
-                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                    Jamones
-                    </label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                    <label class="form-check-label" for="defaultCheck2">
-                    Otros
-                    </label>
-                </div>
-                <select>
-                    <option selected>Ordenar por:</option>
-                    <option value="1">Mas caros</option>
-                    <option value="2">Mas baratos</option>
-                </select>
-                
-            </center>
-    </div>
+    
     <br>
     <div class="container-fluid">
         <div class="row">
-        @foreach($products as $product)
-            <div class="col-lg-2 col-mg-5 col-sm-12">
-                <div class="card">
-                    <img src={{ $product->imagen }} class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $product->nombre }}</h5>
-                        <p class="card-text">{{ $product -> precio }}</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+            <div class="col-1">
+            <!-- ckeck de categorias-->
+                <form class="form-inline">
+                    <div class="form-check form-check-inline mt-3">
+                        <input class="form-check-input" type="checkbox" value="" name= "CheckChorizos" id="CheckChorizos">
+                        <label class="form-check-label" for="CheckChorizos">
+                        Chorizos
+                        </label>
                     </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" value="" id="CheckSalchichones">
+                        <label class="form-check-label" for="CheckSalchichones">
+                        Salchichones
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" value="" id="CheckEmbuchados">
+                        <label class="form-check-label" for="CheckEmbuchados">
+                        Embuchados
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" value="" id="CheckQuesos">
+                        <label class="form-check-label" for="CheckQuesos">
+                        Quesos
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" value="" id="CheckLomos">
+                        <label class="form-check-label" for="CheckLomos">
+                        Lomos
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" value="" id="CheckJamones">
+                        <label class="form-check-label" for="CheckJamones">
+                        Jamones
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline mt-2">
+                        <input class="form-check-input" type="checkbox" value="" id="CheckOtros">
+                        <label class="form-check-label" for="CheckOtros">
+                        Otros
+                        </label>
+                    </div>
+                    <!-- la seleccion de mas barato a mas caro -->
+                    <select class="form-select mt-2">
+                        <option selected>Precio:</option>
+                        <option value="1">Mas caros</option>
+                        <option value="2">Mas baratos</option>
+                    </select>
+                    <!-- el boton -->
+                    <div class="d-grid gap-2 mx-auto">  
+                        <button class="btn btn-dark mt-2" type="button">Filtrar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <div class="row">
+                <!-- el muestreo de la tienda -->
+                    @foreach($products as $product)
+                    <div class="col-lg-2 col-mg-5 col-sm-12">
+                        <div class="card">
+                            <img src={{ $product->imagen }} class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $product->nombre }}</h5>
+                                <p class="card-text">{{ $product -> precio }}</p>
+
+                                <a href="#"  >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
+
+        
         </div>
         <br>
         <center>
