@@ -15,7 +15,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('casa');
 
 
 
@@ -108,3 +108,7 @@ Route::get('/category/{id}', 'CategoryController@showCategory');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
