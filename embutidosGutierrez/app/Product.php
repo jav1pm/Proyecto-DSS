@@ -25,4 +25,24 @@ class Product extends Model
         return $this->hasMany('App\OrderLine');
     }
 
+    // Administrador actualiza stock
+    public function actualizarStock($cantidad) {
+        $this->stock = $cantidad;
+    }
+
+    // Comprueba si hay stock de un producto
+    public function compruebaStock($cantidad) {
+        if($this->stock >= $cantidad){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    // Decrementa el stock una vez realizada una compra
+    public function decrementarStock($cantidad) {
+        $this->stock -= $cantidad;
+    }
+
 }

@@ -27,4 +27,14 @@ class Order extends Model
     public function Orderlines() {
         return $this->hasMany('App\Orderline');
     }
+
+    public function calculaPrecioPedido() {
+        $total = 0;
+        $orderlines = $this->orderlines;
+
+        foreach($orderlines as $ordeline){
+            $total += $orderline->calculaPrecioLinea();
+        }
+        return $total;
+    }
 }

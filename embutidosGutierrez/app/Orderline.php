@@ -30,4 +30,8 @@ class Orderline extends Authenticatable
     public function product() {
         return $this->belongsTo('App\Product');
     }
+
+    public function calculaPrecioLinea() {
+        return $this->cantidad * $this->precioUnidad;
+    }
 }
