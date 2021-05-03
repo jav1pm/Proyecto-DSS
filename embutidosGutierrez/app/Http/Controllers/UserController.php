@@ -91,4 +91,17 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('users.showAll');
     }
+
+    public function storeUser(Request $req){
+
+        $user = new User;
+        $user->nombre = $req->input('name');
+        $user->apellidos = $req->input('surname');
+        $user->email = $req->input('email');
+        $user->password = bcrypt($req->input('password'));
+        $user->esAdmin = false;
+        $user->save();
+
+        return redirect('login')->with('Registrado con éxito, Inicia sesión!');
+    }
 }
