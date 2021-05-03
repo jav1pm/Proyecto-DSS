@@ -50,10 +50,15 @@
       </div>
       
    </div>
+   <style>
+       #mitabla{
+          vertical-align: middle;
+       }
+       </style>
    <div class="container-fluid">
          <h3> Producto </h3>
       <div class="container-fluid">
-      <table class="table table-hover ";  border=“6px”; style="text-align:center">
+      <table id= "mitabla" class="table table-hover ";  border=“6px”; style="text-align:center">
                <thead style="background: #ff8000">
                <tr>
                   <th>ID</th>
@@ -61,6 +66,7 @@
                   <th>Descripcion</th>
                   <th>Precio</th>
                   <th>Categoria</th>
+                  <th>Stock</th>
                   <th>Imagen</th>
                   <th>Editar</th>
                </tr>
@@ -73,7 +79,8 @@
                      <td>{{ $product->descripcion }}</td>
                      <td>{{ $product -> precio }}</td>
                      <td>{{ $product -> category_id }}</td>
-                     <td>{{ $product->imagen }}</td>
+                     <td>{{ $product -> stock }}</td>
+                     <td><img src="{{ $product->imagen }}" width="100" height="100" ></td>
                      <td><a class="btn btn-dark"  href="{{ route('products.editProduct', $product) }}">Editar</a></td>
                   </tr>
                   

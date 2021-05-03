@@ -20,7 +20,8 @@ class ProductsTableSeeder extends Seeder
              'nombre' => 'CHORIZO BLANCO',
              'descripcion' => 'Un chorizo tradicional, sus bolas de pimienta le dan un sabor particular totalmente diferente a cualquier otro chorizo y salchichón.',
              'precio' => 1.09,
-             'imagen' => 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fembutidosgarcializana.com%2Fembutidos%2F128-chorizo-blanco.html&psig=AOvVaw1ek_fNIYI6XwXY676CM9Ke&ust=1617778432475000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCICOlbiE6e8CFQAAAAAdAAAAABAV',
+             'imagen' => 'https://ideyaverde.es/4482-large_default/embutido-tipo-bull-blanco-taula-verda-.jpg',
+             'stock'=> 12,
              'category_id' => 1
          ]);
          $chorizo1->save(); 
@@ -30,6 +31,7 @@ class ProductsTableSeeder extends Seeder
             'descripcion' => 'Un chorizo ideal si lo que quieres es un bajo contenido en grasa. Tiene un sabor muy rico que recuerda a ese sabor de pueblo de toda la vida.',
             'precio' => 4.72,
             'imagen' => 'https://losrejos.com/wp-content/uploads/2020/07/chorizo-venado02.jpg',
+            'stock'=> 12,
             'category_id' => 1
         ]);
         $chorizo2->save(); 
@@ -40,6 +42,7 @@ class ProductsTableSeeder extends Seeder
             'descripcion' => 'Quien no conoce este fuet, hay que reconocer que su sabor y textura es inimitable, aunque muchas otras marcas lo han intentado el fuet de Tarradellas es único.',
             'precio' => 2.80,
             'imagen' => 'https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201909/24/00118387700265____1__600x600.jpg',
+            'stock'=> 12,
             'category_id' => 2
         ]);
         $salchichon1->save(); 
@@ -50,6 +53,7 @@ class ProductsTableSeeder extends Seeder
            'descripcion' => 'Sabor similar al de la caña de lomo. Se aconseja corte fino.',
            'precio' => 4.20,
            'imagen' => 'https://i1.wp.com/www.pcsanchezmarcos.es/wp-content/uploads/2017/08/lengua-iberica.jpg',
+           'stock'=> 12,
            'category_id' => 3
        ]);
        $embuchado1->save(); 
@@ -60,6 +64,7 @@ class ProductsTableSeeder extends Seeder
         'descripcion' => 'Leche cruda, pasta dura y cristalizada. Sabor intenso.',
         'precio' => 5.12,
         'imagen' => 'https://www.elpaladar.es/server/Portal_0005448/img/products/queso-manchego-curado-dehesa-de-los-llanos-12-pieza_3217918.jpg',
+        'stock'=> 12,
         'category_id' => 4
         ]);
         $queso1->save(); 
@@ -69,6 +74,7 @@ class ProductsTableSeeder extends Seeder
          'descripcion' => 'Tietar exquisito, de sabor suave y agradable, su textura es suave y es fresco.',
          'precio' => 6.18,
          'imagen' => 'https://www.elpaladar.es/server/Portal_0005448/img/products/queso-cabra-tietar-tierno_9303577_xxl.jpg',
+         'stock'=> 12,
          'category_id' => 4
         ]);
         $queso2->save(); 
@@ -79,6 +85,7 @@ class ProductsTableSeeder extends Seeder
         'descripcion' => 'Carne tierna y muy jugosa por su alto nivel de filtración. Sin duda tienes que probarlo.',
         'precio' => 12.95,
         'imagen' => 'https://i0.wp.com/www.egogalego.com/wp-content/uploads/2020/03/Lomo-ib%C3%A9rico-curado-de-Cebo.-Media-ca%C3%B1a..jpg',
+        'stock'=> 12,
         'category_id' => 5
         ]);
         $lomo1->save(); 
@@ -88,6 +95,7 @@ class ProductsTableSeeder extends Seeder
          'descripcion' => 'Excelente cabecero de lomo. Buen sabor.',
          'precio' => 10.35,
          'imagen' => 'https://tienda.nietomartin.es/1289-large_default/cabecero-lomo-embuchado.jpg',
+         'stock'=> 12,
          'category_id' => 5
         ]);
         $lomo2->save(); 
@@ -98,6 +106,7 @@ class ProductsTableSeeder extends Seeder
         'descripcion' => 'Excelente jamón ibérico cebo sotoalbos. Muy suave.',
         'precio' => 9.00,
         'imagen' => 'https://www.diablocojuelo.com/167/jamon-iberico-sotoalbos.jpg',
+        'stock'=> 12,
         'category_id' => 6
         ]);
         $jamon1->save(); 
