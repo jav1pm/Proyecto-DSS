@@ -31,7 +31,6 @@
    
 
     <br>
-    <a href="{{ route('orders.createOrders')}}">Crear pedido</a>
    <h3> Pedidos </h3>
    <div class="container-fluid">
             <table class="table table-hover ";  border=“6px”; style="text-align:center">

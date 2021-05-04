@@ -83,7 +83,7 @@
                             <img src={{ $product->imagen }} class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $product->nombre }}</h5>
-                                <p class="card-text">{{ $product -> precio }}</p>
+                                <p class="card-text">{{ $product -> precio }} € </p>
                                 @guest
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

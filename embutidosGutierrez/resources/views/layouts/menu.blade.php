@@ -23,11 +23,19 @@
               <a class="navbar-brand" href="{{ route('casa')}}">
                 <img  width="40" height="34"  src=./imagenes/logo.png>
               </a>
-              <a class="nav-link" href="{{ route('products.showProducts')}}">Productos</a>
-              <a class="nav-link" href="{{ route('users.showAll')}}">Usuarios</a>
-              <a class="nav-link" href="{{ route('orders.showOrders')}}">Pedidos</a>
-              <a class="nav-link" href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a>
-              <a class="nav-link" href="{{ route('categories.showCategories')}}">Categorias</a>
+              <a class="nav-link" href="{{ route('cliente.tienda')}}">Charcuteria</a>
+              <a class="nav-link" href="#">Contacto</a>
+              @auth
+                @if(Auth::user()->esAdmin == true)
+                  <a class="nav-link" href="{{ route('products.showProducts')}}">Productos</a>
+                  <a class="nav-link" href="{{ route('users.showAll')}}">Usuarios</a>
+                  <a class="nav-link" href="{{ route('orders.showOrders')}}">Pedidos</a>
+                  <a class="nav-link" href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a>
+                  <a class="nav-link" href="{{ route('categories.showCategories')}}">Categorias</a>
+                @else
+                  <div class= "nav-link mx-5"> ¡Bienvenido a Embutidos Gutierrez,  {{ Auth::user()->nombre }} {{ Auth::user()->apellidos }}! </div>
+                @endif
+              @endauth
             </ul>
             <!-- login y carrito -->
             @guest

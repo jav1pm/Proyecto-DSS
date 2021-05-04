@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -100,8 +101,16 @@ class UserController extends Controller
         $user->email = $req->input('email');
         $user->password = bcrypt($req->input('password'));
         $user->esAdmin = false;
-        $user->save();
 
-        return redirect('login')->with('Registrado con éxito, Inicia sesión!');
+        $userDB = DB::table('users')->where('email', $user->email)->value('email');
+
+        if($userDB == $user->email){
+            return redirect('register')->with('flash_eq', 'Usuario ya registrado, prueba con otro ;)');
+        }
+        else {
+            $user->save();
+
+            return redirect('login')->with('flash', 'Registrado con éxito, Inicia sesión!');
+        }
     }
 }
