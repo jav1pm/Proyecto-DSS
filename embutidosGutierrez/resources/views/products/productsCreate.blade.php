@@ -10,27 +10,32 @@
             @csrf
             <label>
                 Nombre del producto:<br>
-                <input type="text" name="name">
+                <input value="{{ old('name') }}" type="text" name="name">
+                {!! $errors->first('name', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Descripcion del producto: <br>
-                <input type="text" name="descripcion">
+                <input value="{{ old('descripcion') }}" type="text" name="descripcion">
+                {!! $errors->first('descripcion', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Precio del producto: <br>
-                <input type="text" name="precio">
+                <input value="{{ old('precio') }}" type="text" name="precio">
+                {!! $errors->first('precio', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <label>
             Imagen: <br>
-                <input type="imagen" name="imagen">
+                <input value="{{ old('imagen') }}" type="imagen" name="imagen">
+                {!! $errors->first('imagen', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <label>
             Id de la categoría: <br>
-            <input type="text" name="categoria">
+            <input value="{{ old('categoria') }}" type="text" name="categoria">
+            {!! $errors->first('categoria', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <button class="btn btn-primary">Añadir Producto</button>

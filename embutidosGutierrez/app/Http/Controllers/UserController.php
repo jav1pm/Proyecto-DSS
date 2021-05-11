@@ -47,6 +47,17 @@ class UserController extends Controller
         $direccion = request('direccion');
         $pago = request('pago');
 
+        request()->validate([
+            'name' => 'required',
+            'secondnames' => 'required',
+            'email' => 'required|unique:users|max:255|email',
+            'password' => 'required',
+            'tlf' => 'required|digits:9',
+            'admin' => 'required|boolean',
+            'direccion' => 'required',
+            'pago' => 'required'
+        ]);
+
         User::create([
 
             'nombre' => $name,
