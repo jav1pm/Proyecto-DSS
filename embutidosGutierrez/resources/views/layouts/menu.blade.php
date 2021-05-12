@@ -55,7 +55,7 @@
                       </svg>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                    <li><a class="dropdown-item" href="{{ route('users.editProfile', Auth::user())}}">Editar</a></li>
                     <li><a class="dropdown-item" href="#">Pedidos</a></li>
                     </ul>
               </div>

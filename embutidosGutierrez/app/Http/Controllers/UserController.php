@@ -71,6 +71,13 @@ class UserController extends Controller
         ]);
     }
 
+    public function editProfile($id){
+        $user = User::findOrfail($id);
+        return view('users.editProfile', [
+            'user' => $user
+        ]);
+    }
+
     public function updateUser(User $user){
 
         $user->update([
@@ -112,5 +119,19 @@ class UserController extends Controller
 
             return redirect('login')->with('flash', 'Registrado con éxito, Inicia sesión!');
         }
+    }
+
+    public function updateProfile(User $user){
+
+    $user->update([
+            'nombre' => request('name'),
+            'apellidos' => request('surname'),
+            'password' => bcrypt(request('password')),
+            'telefono' => request('telephone'),
+            'direccion' => request('dir'),
+            'pago' => request('payment')
+        ]);
+    
+        return redirect()->back()->with('flash', '¡Usuario actualizado con éxito!');
     }
 }
