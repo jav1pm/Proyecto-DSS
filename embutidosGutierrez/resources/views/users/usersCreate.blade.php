@@ -6,47 +6,54 @@
     <center>
 
         <h1> Crear nuevo usuario</h1>
-
         <form method="POST" action="{{ route('users.storeUsers') }}">
             @csrf
             <label>
                 Nombre de usuario: <br>   
-                <input type="text" name="name">
+                <input value="{{ old('name') }}" type="text" name="name">
+                {!! $errors->first('name', '<br><small>:message</small><br>') !!}
             </label>
             <p></p> 
             <label>
                 Apellidos del usuario: <br>
-                <input type="text" name="secondnames">
+                <input value="{{ old('secondnames') }}" type="text" name="secondnames">
+                {!! $errors->first('secondnames', '<br><small>:message</small><br>') !!}
             </label>
             <p></p> 
             <label>
                 Email del usuario: <br>
-                <input type="text" name="email">
+                <input value="{{ old('email') }}" type="text" name="email">
+                {!! $errors->first('email', '<br><small>:message</small><br>') !!}
             </label>
             <p></p> 
             <label>
                 Contraseña: <br>
                 <input type="password" name="password">
+                {!! $errors->first('password', '<br><small>:message</small><br>') !!}
             </label>
             <p></p> 
             <label>
                 Número de teléfono: <br>
-                <input type="text" name="tlf">
+                <input value="{{ old('tlf') }}" type="text" name="tlf">
+                {!! $errors->first('tlf', '<br><small>:message</small><br>') !!}
             </label>
             <p></p> 
             <label>
                 Esadmin:<br>
-                <input type="text" name="admin">
+                <input value="{{ old('admin') }}" type="text" name="admin">
+                {!! $errors->first('admin', '<br><small>:message</small><br>') !!}
             </label>
             <p></p> 
             <label>
                 Direccion: <br>
-                <input type="text" name="direccion">
+                <input value="{{ old('direccion') }}" type="text" name="direccion">
+                {!! $errors->first('direccion', '<br><small>:message</small><br>') !!}
             </label>
             <p></p> 
             <label> 
                 Pago: <br>
-                <input type="text" name="pago">
+                <input value="{{ old('pago') }}" type="text" name="pago">
+                {!! $errors->first('pago', '<br><small>:message</small><br>') !!}
             </label>
             <p></p> 
             <button class="btn btn-primary">Crear Usuario</button>

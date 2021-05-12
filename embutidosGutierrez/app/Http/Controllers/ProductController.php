@@ -55,6 +55,13 @@ class ProductController extends Controller
 
     public function storeProducts(){
     
+        request()->validate([
+            'name' => 'required',
+            'descripcion' => 'required',
+            'precio' => 'required|numeric',
+            'imagen' => 'required',
+            'category_id' => 'digit:1'
+        ]);
 
         Product::create([
 
