@@ -9,10 +9,6 @@
             <div class="card">
                 <div class="card-header">{{ __('Editar Perfil') }}</div>
 
-                    @if (session()->has('flash_eq'))
-                        <div class= "alert alert-info"> {{ session('flash_eq')}} </div>
-                    @endif
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('users.updateProfile', $user) }}">
                         @csrf

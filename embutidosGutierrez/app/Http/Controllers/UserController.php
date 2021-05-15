@@ -112,35 +112,55 @@ class UserController extends Controller
     }
 
     public function storeUser(Request $req){
+        
+        $name = $req->input('name');
+        $surname = $req->input('surname');
+        $email = $req->input('email');
+        $password = bcrypt($req->input('password'));
+        
+        $req->validate([
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'email' => 'required|unique:users|max:255|email',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
-        $user = new User;
-        $user->nombre = $req->input('name');
-        $user->apellidos = $req->input('surname');
-        $user->email = $req->input('email');
-        $user->password = bcrypt($req->input('password'));
-        $user->esAdmin = false;
+        User::create([
+            'nombre' => $name,
+            'apellidos' => $surname,
+            'email' => $email,
+            'password' => $password,
+            'esAdmin' => false 
+        ]);
 
-        $userDB = DB::table('users')->where('email', $user->email)->value('email');
-
-        if($userDB == $user->email){
-            return redirect('register')->with('flash_eq', 'Usuario ya registrado, prueba con otro ;)');
-        }
-        else {
-            $user->save();
-
-            return redirect('login')->with('flash', 'Registrado con éxito, Inicia sesión!');
-        }
+        return redirect('login')->with('flash', 'Registrado con éxito, Inicia sesión!');
     }
 
     public function updateProfile(User $user){
 
-    $user->update([
-            'nombre' => request('name'),
-            'apellidos' => request('surname'),
-            'password' => bcrypt(request('password')),
-            'telefono' => request('telephone'),
-            'direccion' => request('dir'),
-            'pago' => request('payment')
+        $name = request('name');
+        $surname = request('surname');
+        $password = bcrypt(request('password'));
+        $telephone = request('telephone');
+        $dir = request('dir');
+        $pago = request('payment');
+
+        request()->validate([
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
+            'telephone' => 'nullable|string|min:9|',
+            'dir' => 'nullable|string|max:255',
+            'pago' => 'nullable|string|max:127'
+        ]);
+
+        $user->update([
+            'nombre' => $name,
+            'apellidos' => $surname,
+            'password' => $password,
+            'telefono' => $telephone,
+            'direccion' => $dir,
+            'pago' => $pago
         ]);
     
         return redirect()->back()->with('flash', '¡Usuario actualizado con éxito!');
