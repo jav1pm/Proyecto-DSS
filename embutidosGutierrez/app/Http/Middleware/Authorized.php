@@ -9,12 +9,13 @@ class Authorized {
     public function handle($request, Closure $next)
     {
         $id = $request->route('id');
-        
-        $user = Auth::user();
-        if($user->id == $id) {
-            return $next($request);
-        } else {
-            return redirect()->route('casa');
+        if($id) {
+            $user = Auth::user();
+            if($user && $user->id == $id) {
+                return $next($request);
+            } else {
+                return redirect()->route('casa');
+            }
         }
     }
 }
