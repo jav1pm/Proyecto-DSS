@@ -37,25 +37,25 @@ Route::post('auth/logout', 'Auth\LoginController@logout')->name('logout');
 /////////////////////////////////////////////RUTAS DEL CRUD DE USUARIO ////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/user', 'UserController@showAll')->name('users.showAll');
+Route::get('/user', 'UserController@showAll')->middleware('esAdmin')->name('users.showAll');
 
-Route::get('/user/createuser' , 'UserController@createUser')->name('users.createUser');
+Route::get('/user/createuser' , 'UserController@createUser')->middleware('esAdmin')->name('users.createUser');
 
-Route::get('/user/{id}/edit' , 'UserController@editUser')->name('users.editUser');
+Route::get('/user/{id}/edit' , 'UserController@editUser')->middleware('esAdmin')->name('users.editUser');
 
-Route::patch('/user/{user}', 'UserController@updateUser')->name('users.updateUser');
+Route::patch('/user/{user}', 'UserController@updateUser')->middleware('esAdmin')->name('users.updateUser');
 
-Route::post('/user', 'UserController@storeUsers')->name('users.storeUsers');
+Route::post('/user', 'UserController@storeUsers')->middleware('esAdmin')->name('users.storeUsers');
 
-Route::post('/user/buscarUsuarioPorNombre', 'UserController@buscarUsuarioPorNombre')->name('users.buscarUsuarioPorNombre');
+Route::post('/user/buscarUsuarioPorNombre', 'UserController@buscarUsuarioPorNombre')->middleware('esAdmin')->name('users.buscarUsuarioPorNombre');
 
-Route::get('/user/{user}/delete', 'UserController@deleteUser')->name('users.deleteUser');
+Route::get('/user/{user}/delete', 'UserController@deleteUser')->middleware('esAdmin')->name('users.deleteUser');
 
-Route::get('/user/filter/{name}','UserController@showUserByName');
+Route::get('/user/filter/{name}','UserController@showUserByName')->middleware('esAdmin');
 
-Route::get('/user/{id}', 'UserController@showUser');
+Route::get('/user/{id}', 'UserController@showUser')->middleware('esAdmin');
 
-Route::get('/user/{id}/editProfile' , 'UserController@editProfile')->name('users.editProfile');
+Route::get('/user/{id}/editProfile' , 'UserController@editProfile')->middleware('authorized')->name('users.editProfile');
 
 Route::post('/user/{user}/updateProfile' , 'UserController@updateProfile')->name('users.updateProfile');
 
@@ -64,23 +64,23 @@ Route::post('/user/{user}/updateProfile' , 'UserController@updateProfile')->name
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-Route::get('/product', 'ProductController@showAll')->name('products.showProducts');
+Route::get('/product', 'ProductController@showAll')->middleware('esAdmin')->name('products.showProducts');
 
-Route::get('/product/createproduct' , 'ProductController@createProduct')->name('products.createProducts');
+Route::get('/product/createproduct' , 'ProductController@createProduct')->middleware('esAdmin')->name('products.createProducts');
 
-Route::post('/product', 'ProductController@storeProducts')->name('products.storeProducts');
+Route::post('/product', 'ProductController@storeProducts')->middleware('esAdmin')->name('products.storeProducts');
 
-Route::post('/product/bucarUnoPorId', 'ProductController@buscarUnoPorId')->name('products.buscarUnoPorId');
+Route::post('/product/bucarUnoPorId', 'ProductController@buscarUnoPorId')->middleware('esAdmin')->name('products.buscarUnoPorId');
 
-Route::post('/product/buscarUnoPorNombre', 'ProductController@buscarUnoPorNombre')->name('products.buscarUnoPorNombre');
+Route::post('/product/buscarUnoPorNombre', 'ProductController@buscarUnoPorNombre')->middleware('esAdmin')->name('products.buscarUnoPorNombre');
 
-Route::get('/product/{id}/editproduct', 'ProductController@editProduct')->name('products.editProduct');
+Route::get('/product/{id}/editproduct', 'ProductController@editProduct')->middleware('esAdmin')->name('products.editProduct');
 
-Route::patch('/product/{product}', 'ProductController@updateProduct')->name('products.updateProduct');
+Route::patch('/product/{product}', 'ProductController@updateProduct')->middleware('esAdmin')->name('products.updateProduct');
 
-Route::get('/product/{product}/delete', 'ProductController@deleteProduct')->name('products.deleteProduct');
+Route::get('/product/{product}/delete', 'ProductController@deleteProduct')->middleware('esAdmin')->name('products.deleteProduct');
 
-Route::get('/product/{id}', 'ProductController@showProduct')->name('products.showProduct');
+Route::get('/product/{id}', 'ProductController@showProduct')->middleware('esAdmin')->name('products.showProduct');
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,39 +88,39 @@ Route::get('/product/{id}', 'ProductController@showProduct')->name('products.sho
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-Route::get('/order', 'OrderController@showAll')->name('orders.showOrders');
+Route::get('/order', 'OrderController@showAll')->middleware('esAdmin')->name('orders.showOrders');
 
-Route::get('/order/createorder', 'OrderController@createOrder')->name('orders.createOrders');
+Route::get('/order/createorder', 'OrderController@createOrder')->middleware('esAdmin')->name('orders.createOrders');
 
-Route::post('/order','OrderController@storeOrder')->name('orders.storeOrder');
+Route::post('/order','OrderController@storeOrder')->middleware('esAdmin')->name('orders.storeOrder');
 
-Route::get('/order/{id}/editorder','OrderController@editOrder')->name('orders.editOrder');
+Route::get('/order/{id}/editorder','OrderController@editOrder')->middleware('esAdmin')->name('orders.editOrder');
 
-Route::patch('/order/{order}','OrderController@updateOrder')->name('orders.updateOrder');
+Route::patch('/order/{order}','OrderController@updateOrder')->middleware('esAdmin')->name('orders.updateOrder');
 
-Route::get('/order/{order}/delete', 'OrderController@deleteOrder')->name('orders.deleteOrder');
+Route::get('/order/{order}/delete', 'OrderController@deleteOrder')->middleware('esAdmin')->name('orders.deleteOrder');
 
-Route::get('/order/{id}', 'OrderController@showOrder');
+Route::get('/order/{id}', 'OrderController@showOrder')->middleware('esAdmin');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////// RUTAS DEL CRUD DE LINEA DE PEDIDO ///////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/orderlines', 'OrderlineController@showAll')->name('orderlines.showOrderlines');
+Route::get('/orderlines', 'OrderlineController@showAll')->middleware('esAdmin')->name('orderlines.showOrderlines');
 
-Route::get('/orderlines/{id}/delete','OrderlineController@deleteOrderline');
+Route::get('/orderlines/{id}/delete','OrderlineController@deleteOrderline')->middleware('esAdmin');
 
-Route::get('/orderline/{id}', 'OrderlineController@showOrderLine');
+Route::get('/orderline/{id}', 'OrderlineController@showOrderLine')->middleware('esAdmin');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////// RUTAS DEL CRUD DE CATEGORIA /////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::get('/category', 'CategoryController@showAll')->name('categories.showCategories');
+Route::get('/category', 'CategoryController@showAll')->middleware('esAdmin')->name('categories.showCategories');
 
-Route::get('/category/{id}/delete','CategoryController@deleteCategory') -> name('categories.deleteCategory');
+Route::get('/category/{id}/delete','CategoryController@deleteCategory')->middleware('esAdmin')->name('categories.deleteCategory');
 
-Route::get('/category/{id}', 'CategoryController@showCategory');
+Route::get('/category/{id}', 'CategoryController@showCategory')->middleware('esAdmin');
 
 
 
