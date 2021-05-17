@@ -32,5 +32,15 @@ class OrderlineController extends Controller
         return redirect()->route('orderlines.showOrderlines');   
 
     }
-
+///////////////////////////////////////
+    public function showCarrito(Request $request){//esto es del carrito, a falta de implementar
+        $res = $request->get('ordenarOrderlines');
+        if(!$res)
+        {
+            $res = 'id';
+        }
+        $orderlines = Orderline::orderBy($res,'asc')->paginate(5);
+        return view('cliente.carrito', compact('orderlines'));
+    }
+///////////////////////////////
 }
