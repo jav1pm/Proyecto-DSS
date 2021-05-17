@@ -9,7 +9,7 @@ class EsAdmin {
     public function handle($request, Closure $next)
     {
         $user = Auth::user();
-        if($user->esAdmin == true) {
+        if($user && $user->esAdmin == true) {
             return $next($request);
         } else {
             return redirect()->route('casa');
