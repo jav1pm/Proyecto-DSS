@@ -17,6 +17,16 @@ class OrderController extends Controller
         return view('orders/ordersIndex', compact('orders'));
     }
 
+    public function showForClient(Request $request){//controlador de pedidos del clienet
+        $res = $request->get('ordenarOrder');
+        if(!$res)
+        {
+            $res = 'fecha';
+        }
+        $orders = Order::orderBy($res,'desc')->paginate(2);
+        return view('orders/orderClient', compact('orders'));
+    }
+
     public function showOrder($id){
         $order = Order::find($id);
         if(!$order)

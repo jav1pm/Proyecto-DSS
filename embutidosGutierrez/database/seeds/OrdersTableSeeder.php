@@ -28,5 +28,23 @@ class OrdersTableSeeder extends Seeder
         ]);
         $pedido1->user()->associate($usuario2);
         $pedido1->save();
+
+        $pedido2 = new Order([
+            'fecha' => date_create('2021-04-08'),
+            'estado' => 'En envío',
+            'direccion' => $usuario2 -> direccion,
+            'pago' => $usuario2 -> pago,
+        ]);
+        $pedido2->user()->associate($usuario2);
+        $pedido2->save();
+
+        $pedido3 = new Order([
+            'fecha' => date_create('2021-03-09'),
+            'estado' => 'En envío',
+            'direccion' => $usuario2 -> direccion,
+            'pago' => $usuario2 -> pago,
+        ]);
+        $pedido3->user()->associate($usuario2);
+        $pedido3->save();
     }
 }

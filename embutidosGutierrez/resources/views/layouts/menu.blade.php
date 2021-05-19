@@ -12,7 +12,7 @@
   </head>
   <body>
   <!-- menu -->
-  <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light "style="background-color:F5F5F5;">
+  <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light h5 "style="background-color:F5F5F5;">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,7 +33,7 @@
                   <a class="nav-link" href="{{ route('orderlines.showOrderlines')}}">Lineas de pedido</a>
                   <a class="nav-link" href="{{ route('categories.showCategories')}}">Categorias</a>
                 @else
-                  <div class= "nav-link mx-5"> ¡Bienvenido a Embutidos Gutierrez,  {{ Auth::user()->nombre }} {{ Auth::user()->apellidos }}! </div>
+                  <div class= "nav-link mx-5"> ¡Bienvenid@ a Embutidos Gutierrez,  {{ Auth::user()->nombre }} {{ Auth::user()->apellidos }}! </div>
                 @endif
               @endauth
             </ul>
@@ -56,7 +56,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="{{ route('users.editProfile', Auth::user())}}">Editar</a></li>
-                    <li><a class="dropdown-item" href="#">Pedidos</a></li>
+                    <li><a class="dropdown-item" href="{{ route('orders.showOrdersCliente', Auth::user())}}">Pedidos</a></li>
                     </ul>
               </div>
                 <a class="navbar-brand" href="#" onclick="event.preventDefault(); 
