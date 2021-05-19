@@ -34,26 +34,36 @@
     <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-4">
+            <div class="col">
+            <center>
                 <hr>
-                <h1 class="display-3">¿Quienes somos?</h1>
-                <hr>
+                <h1 class="display-3">¿Quiénes somos?</h1>
+                
                 <p class="lead">Embutodos Gutierrez es una charcuteria familiar 
                     murciana fundada en 1963. A través de nuestra tienda online, enviamos nuestros productos a toda la geografía española.
                 </p>
+                <hr>
+            </center>
             </div>
+        </div>
+        <div class="row ">
+            
+            
+                    
             <div class="col ">
-                    <div class="row">
-                        <div class="col">
-                            <img src="./imagenes/frio.jpg" width="70%" height="70%" class="img-fluid img-thumbnail">
-                            <img src="./imagenes/seur.png" width="70%" height="70%" class="img-fluid img-thumbnail">
-                            
-                        </div>
-                        <div class="col">
-                            <img src="./imagenes/corteJamon.jpg" width="70%" height="70%" class="img-fluid img-thumbnail">
-                        </div>
-                </div>
+                <center>
+                <img src="./imagenes/frio.jpg" width="70%" height="70%" class="img-fluid img-thumbnail">
+                <img src="./imagenes/seur.png" width="70%" height="70%" class="img-fluid img-thumbnail">
+                </center>
+            </div>
+            <div class="col">
+            <center>
+                <img src="./imagenes/corteJamon.jpg" width="70%" height="70%" class="img-fluid img-thumbnail">
+                </center>
+            </div>
+                
 
+            
             </div>
         </div>
         <br>
