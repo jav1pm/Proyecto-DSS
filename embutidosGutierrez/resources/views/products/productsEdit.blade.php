@@ -24,6 +24,11 @@
         </label>
         <p></p>
         <label>
+        Stock: <br>  
+            <input type="text" name="stock" value="{{ $product->stock }}">
+        </label>
+        <p></p>
+        <label>
         Imagen: <br>  
             <input type="imagen" name="imagen" value="{{ $product->imagen }}">
         </label>

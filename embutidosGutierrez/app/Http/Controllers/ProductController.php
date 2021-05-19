@@ -68,6 +68,7 @@ class ProductController extends Controller
             'nombre' => request('name'),
             'descripcion' => request('descripcion'),
             'precio' => floatval(request('precio')),
+            'stock'=> request('stock'),
             'imagen' => request('imagen'),
             'category_id' => intval(request('categoria')),
 
@@ -92,6 +93,7 @@ class ProductController extends Controller
             'nombre' => request('name'),
             'descripcion' => request('descripcion'),
             'precio' => floatval(request('precio')),
+            'stock'=> request('stock'),
             'imagen' => request('imagen'),
             'category_id' => intval(request('categoria')),
 

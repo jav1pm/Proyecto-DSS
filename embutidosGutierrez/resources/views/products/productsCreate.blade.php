@@ -27,6 +27,12 @@
             </label>
             <p></p>
             <label>
+                Stock: <br>
+                <input value="{{ old('stock') }}" type="text" name="stock">
+                {!! $errors->first('stock', '<br><small>:message</small><br>') !!}
+            </label>
+            <p></p>
+            <label>
             Imagen: <br>
                 <input value="{{ old('imagen') }}" type="imagen" name="imagen">
                 {!! $errors->first('imagen', '<br><small>:message</small><br>') !!}
