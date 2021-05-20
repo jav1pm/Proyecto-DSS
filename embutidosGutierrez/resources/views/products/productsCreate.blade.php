@@ -16,7 +16,7 @@
             <p></p>
             <label>
                 Descripcion del producto: <br>
-                <input value="{{ old('descripcion') }}" type="text" name="descripcion">
+                <textarea name="descripcion">{{ old('descripcion') }}</textarea>
                 {!! $errors->first('descripcion', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
@@ -40,7 +40,12 @@
             <p></p>
             <label>
             Id de la categoría: <br>
-            <input value="{{ old('categoria') }}" type="text" name="categoria">
+            <select class="form-control mr-sm-2" value="{{ old('categoria') }}" name="categoria" id="categoria">
+                  <option><a value=null selected>Selecciona</a></option>
+                      @foreach($categories as $category)
+                  <option><a value="{{$category->id}}">{{$category->id}}</a></option>
+                      @endforeach
+              </select>            
             {!! $errors->first('categoria', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>

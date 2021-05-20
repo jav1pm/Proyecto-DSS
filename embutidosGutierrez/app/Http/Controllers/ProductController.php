@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
+use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
@@ -44,7 +46,10 @@ class ProductController extends Controller
 
 
     public function createProduct(){
-        return view('products.productsCreate');
+        $categories = Category::All();
+        return view('products.productsCreate', [
+            'categories'=>$categories
+        ]);
     }
 
     public function buscarUnoPorNombre() {
@@ -60,7 +65,7 @@ class ProductController extends Controller
             'descripcion' => 'required',
             'precio' => 'required|numeric',
             'imagen' => 'required',
-            'category_id' => 'digit:1'
+            'categoria' => 'required|'. Rule::notIn(['Selecciona', 'null'])
         ]);
 
         Product::create([
@@ -82,13 +87,23 @@ class ProductController extends Controller
 
     public function editProduct($id){
         $product = Product::findOrfail($id);
+        $categories = Category::All();
 
         return view('products.productsEdit', [
-            'product' => $product
+            'product' => $product, 'categories' => $categories
         ]);
     }
 
     public function updateProduct(Product $product){
+
+        request()->validate([
+            'name' => 'required',
+            'descripcion' => 'required',
+            'precio' => 'required|numeric',
+            'imagen' => 'required',
+            'categoria' => 'required|'. Rule::notIn(['Selecciona', 'null'])
+        ]);
+
         $product->update([
             'nombre' => request('name'),
             'descripcion' => request('descripcion'),

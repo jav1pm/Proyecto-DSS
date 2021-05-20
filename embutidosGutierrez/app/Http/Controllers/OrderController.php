@@ -42,6 +42,14 @@ class OrderController extends Controller
 
     public function storeOrder(){
 
+        request()->validate([
+            'date' => 'required',
+            'estado' => 'required',
+            'direccion' => 'required|numeric',
+            'pago' => 'required',
+            'usuario' => 'required'
+        ]);
+
         Order::create([
 
             'fecha' => request('fecha'),
@@ -65,12 +73,19 @@ class OrderController extends Controller
     }
 
     public function updateOrder(Order $order){
+
+        request()->validate([
+            'date' => 'required',
+            'estado' => 'required',
+            'direccion' => 'required|numeric',
+            'pago' => 'required',
+        ]);
+
         $order->update([
             'fecha' => request('fecha'),
             'estado' => request('estado'),
             'direccion' => request('direccion'),
             'pago' => request('pago'),
-            'user_id' => intval(request('usuario')),
         ]);
 
         return redirect() -> route('orders.showOrders');

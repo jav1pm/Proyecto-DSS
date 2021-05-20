@@ -12,31 +12,36 @@
             <label>
                 Nombre de usuario: <br>
                 <input type="text" name="name" value="{{ $user->nombre }}">
+                {!! $errors->first('name', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Apellidos del usuario: <br>
                 <input type="text" name="secondnames" value="{{ $user->apellidos }}">
+                {!! $errors->first('secondnames', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Email del usuario: <br>
-                <input type="text" name="email" value="{{ $user->email }}">
+                <input type="text" name="email" disabled value="{{ $user->email }}">
             </label>
             <p></p>
             <label>
                 Contraseña: <br>
                 <input type="password" name="password" value="{{ $user->password }}">
+                {!! $errors->first('password', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Número de teléfono: <br>
                 <input type="text" name="tlf" value="{{ $user->telefono }}">
+                {!! $errors->first('tlf', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Esadmin: <br>
                 <input type="text" name="admin" value="{{ $user->esAdmin }}">
+                {!! $errors->first('admin', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <label>
@@ -47,6 +52,7 @@
             <label> 
                 Pago: <br>
                 <input type="text" name="pago" value="{{ $user->pago }}">
+                {!! $errors->first('pago', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
             <button>Editar Usuario</button>

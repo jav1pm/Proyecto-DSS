@@ -54,8 +54,7 @@ class UserController extends Controller
             'password' => 'required',
             'tlf' => 'required|digits:9',
             'admin' => 'required|boolean',
-            'direccion' => 'required',
-            'pago' => 'required'
+            'pago' => 'nullable|digit:9'
         ]);
 
         User::create([
@@ -91,10 +90,18 @@ class UserController extends Controller
 
     public function updateUser(User $user){
 
+        request()->validate([
+            'name' => 'required',
+            'secondnames' => 'required',
+            'password' => 'required',
+            'tlf' => 'required|digits:9',
+            'admin' => 'required|boolean',
+            'pago' => 'nullable|digits:9'
+        ]);
+
         $user->update([
             'nombre' => request('name'),
             'apellidos' => request('secondnames'),
-            'email' => request('email'),
             'password' => bcrypt(request('password')),
             'telefono' => request('tlf'),
             'esAdmin' => request('admin'),
