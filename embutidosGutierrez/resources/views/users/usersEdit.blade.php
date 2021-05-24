@@ -55,10 +55,12 @@
                 {!! $errors->first('pago', '<br><small>:message</small><br>') !!}
             </label>
             <p></p>
-            <button>Editar Usuario</button>
+            <button type="button" class="btn btn-primary">Editar Usuario</button>
             <a class="btn btn-danger" href="{{ route('users.deleteUser', $user) }}">Borrar<a>
             </form>
+            
         <center>
+        <br>
         @endsection
 @section('contentfooter')
 @endsection     

@@ -33,7 +33,7 @@
 
 
       <h3> Lineas de pedido </h3>
-      <div class="container-fluid">
+      <div class="container-fluid table-responsive">
             <table class="table table-hover ";  border=“6px”; style="text-align:center">
                <thead style="background: #ff8000">
          <tr>
