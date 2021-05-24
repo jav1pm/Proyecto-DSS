@@ -20,7 +20,7 @@ class OrderController extends Controller
 
     public function showForClient(){//controlador de pedidos del clienet
 
-        $user = Auth::user()->orders;
+        $user = Auth::user();
         if ($user) { //Control de usuario 
             $orders = Auth::user()->orders;
             foreach($orders as $key => $carrito){
@@ -28,10 +28,11 @@ class OrderController extends Controller
                     unset($orders[$key]);
                 }
             }
-        } else {
-            $orders = collect();
-        }
-        return view('orders/orderClient', compact('orders'));
+
+            return view('orders/orderClient', compact('orders'));
+        } 
+           
+        return redirect()->route('casa'); 
     }
 
     public function showOrder($id){

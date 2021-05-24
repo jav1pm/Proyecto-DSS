@@ -44,7 +44,7 @@ class OrderlineController extends Controller
 
     public function showCarrito(){
         
-        $user = Auth::user()->orders;
+        $user = Auth::user();
         if ($user) { //Control de usuario
             $userOrders = Auth::user()->orders;
             foreach($userOrders as $carrito){
@@ -134,7 +134,7 @@ class OrderlineController extends Controller
 
     public function checkOrderLine($id){
         
-        $user = Auth::user()->orders;
+        $user = Auth::user();
         if ($user) { //Control de usuario
             $pedido = Order::findOrfail($id);
             if($pedido) {
@@ -144,6 +144,6 @@ class OrderlineController extends Controller
             } 
         }
         
-        return redirect()->route('orders.showOrdersCliente'); 
+        return redirect()->route('casa'); 
     }
 }
