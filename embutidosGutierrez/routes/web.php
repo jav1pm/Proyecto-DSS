@@ -114,7 +114,7 @@ Route::get('/orderlines', 'OrderlineController@showAll')->middleware('esAdmin')-
 
 Route::get('/orderlines/{id}/delete','OrderlineController@deleteOrderline')->middleware('esAdmin');
 
-Route::get('/orderlines/{id}/deleteClient','OrderlineController@deleteOrderlineClient')->middleware('esAdmin')->name('orderlines.deleteOrderlineClient');
+Route::get('/orderlines/{id}/deleteClient','OrderlineController@deleteOrderlineClient')->name('orderlines.deleteOrderlineClient');
 
 Route::get('/orderline/{id}', 'OrderlineController@showOrderLine')->middleware('esAdmin');
 
