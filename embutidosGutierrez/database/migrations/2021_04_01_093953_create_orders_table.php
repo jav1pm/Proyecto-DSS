@@ -15,10 +15,10 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('fecha');
+            $table->date('fecha')->nullable();
             $table->string('estado');
-            $table->string('direccion');
-            $table->string('pago');
+            $table->string('direccion')->nullable();
+            $table->string('pago')->nullable();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

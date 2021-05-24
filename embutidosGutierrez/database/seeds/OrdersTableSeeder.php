@@ -22,7 +22,7 @@ class OrdersTableSeeder extends Seeder
         // Añadimos una entrada a esta tabla
         $pedido1 = new Order([
             'fecha' => date_create('2021-03-07'),
-            'estado' => 'carrito',
+            'estado' => 'Completado',
             'direccion' => $usuario2 -> direccion,
             'pago' => $usuario2 -> pago,
         ]);

@@ -21,7 +21,7 @@ Route::get('/tienda', 'ProductController@tienda')->name('cliente.tienda');
 
 Route::get('/carrito', 'OrderlineController@showCarrito')->name('cliente.carrito');
 
-
+Route::get('/carrito/{id}', 'OrderlineController@addProductCarrito')->name('cliente.addProductCarrito');
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////REGISTRAR USUARIO/////////////////////////////////////////////////////////////////
@@ -117,6 +117,8 @@ Route::get('/orderlines/{id}/delete','OrderlineController@deleteOrderline')->mid
 Route::get('/orderlines/{id}/deleteClient','OrderlineController@deleteOrderlineClient')->name('orderlines.deleteOrderlineClient');
 
 Route::get('/orderline/{id}', 'OrderlineController@showOrderLine')->middleware('esAdmin');
+
+Route::get('/orderline/check/{id}', 'OrderlineController@checkOrderLine')->name('orderlines.checkOrderLine');
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

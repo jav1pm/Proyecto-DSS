@@ -21,15 +21,18 @@
                         <table id= "mitabla" class="table table-hover ";   style="text-align:center">
                                 <thead>
                             <tr>
+                                <th>Estado</th>
+                                <th>Dirección</th>
                                 <th>Productos</th>
-                                <th>Cantidad</th>
 
                             </tr>
                             </thead>
                             <tbody >
                                 <tr >
-                                    <td>{{ $order->Orderlines }}</td> 
-                                    <td> cantidad </td>              
+                                    <td>{{ $order->estado }}</td> 
+                                    <td> {{ $order->direccion }} </td>     
+                                    <td><a class="btn btn-danger"  href="{{ route('orderlines.checkOrderLine', $order->id)}}">VER</a></td>
+                                             
                             </tbody>
                         </table>
                         
@@ -42,11 +45,6 @@
     </div >
     <br>
     @endforeach
-    <center>
-    {{$orders-> links()}}
-    </center>
-    
-    
     
 <br>
 </body>

@@ -28,8 +28,7 @@
             <tbody >
                 @foreach($orderlines as $orderline)
                 <tr >
-                    <td>{{ $orderline->product->nombre}}</td><!-- pon aqui el nombre del produco no el id -->
-                    
+                    <td>{{ $orderline->product->nombre}}</td>
                     <td>{{ $orderline->cantidad }}</td>
                     <td>{{ $orderline->precioUnidad }}€</td>
                     <td>{{ $orderline->precioUnidad * $orderline->cantidad }}€</td>
@@ -72,10 +71,10 @@
                                     <form>
                                     <div class="mb-3">
                                         <label for="recipient-name" class="col-form-label">Direccion:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
+                                        <input type="text" class="form-control" id="recipient-name" value="{{ Auth::user()->direccion }}">
 
                                         <label for="message-text" class="col-form-label">Tarjeta:</label>
-                                        <input type="text" class="form-control" id="recipient-name">
+                                        <input type="text" class="form-control" id="recipient-name" value="{{ Auth::user()->pago }}">
                                     </div>
                                     <button type="button" class="btn btn-primary">Comprar</button>
                                     </form>

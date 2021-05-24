@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Orderline;
 use App\Order;
+use App\Product;
 use Illuminate\Support\Facades\Auth;
 
 class OrderlineController extends Controller
@@ -55,11 +56,94 @@ class OrderlineController extends Controller
                 } 
             }
 
+            //No existe el carrito con productos
             $precioTotal = 0;
             $orderlines = collect();
             return view('cliente.carrito', compact('orderlines', 'precioTotal'));
         }
         
         return redirect()->route('casa'); 
+    }
+
+    public function addProductCarrito($id) {
+
+        $user = Auth::user()->orders;
+        if ($user) { //Control de usuario
+            $producto = Product::findOrfail($id);
+            if($producto) {
+                $userOrders = Auth::user()->orders;
+
+                foreach($userOrders as $carrito){
+                    if($carrito->estado == "carrito") { //Existe el carrito con productos
+        
+                        $carrito->fecha = date('Y-m-d');
+                        $carrito->save();
+                        $orderlines = $carrito->Orderlines;
+                        
+
+                        //Miramos si se repite el producto
+                        foreach($orderlines as $line){
+                        
+                            if($line->product_id == $id) {
+
+                                $line->cantidad += 1;
+                                $line->save();
+                                return redirect()->route('cliente.tienda'); 
+                            }
+                        }
+
+                        //Creamos linea producto desde 0
+                        $orderline = new Orderline([
+                            'cantidad'=>'1',
+                            'precioUnidad' => $producto -> precio
+                        ]);
+                        $orderline->product()->associate($producto);
+                        $orderline->order()->associate($carrito);
+                        $orderline->save();
+
+                        return redirect()->route('cliente.tienda'); 
+                    } 
+                }
+                
+            
+                //No existe el carrito con productos
+
+                //Creamos carrito
+                $pedido = new Order([
+                    'estado' => 'carrito',
+                    'fecha' => date('Y-m-d')
+                ]);
+                $pedido->user()->associate(Auth::user());
+                $pedido->save();
+
+                //Creamos linea producto
+                $orderline = new Orderline([
+                    'cantidad'=>'1',
+                    'precioUnidad' => $producto -> precio
+                ]);
+                $orderline->product()->associate($producto);
+                $orderline->order()->associate($pedido);
+                $orderline->save();
+
+                return redirect()->route('cliente.tienda'); 
+            }
+        }
+
+        return redirect()->route('cliente.tienda'); 
+    }
+
+    public function checkOrderLine($id){
+        
+        $user = Auth::user()->orders;
+        if ($user) { //Control de usuario
+            $pedido = Order::findOrfail($id);
+            if($pedido) {
+                $precioTotal = $pedido->calculaPrecioPedido();
+                $orderlines = $pedido->Orderlines;
+                return view('orders.orderCheck', compact('orderlines', 'precioTotal'));
+            } 
+        }
+        
+        return redirect()->route('orders.showOrdersCliente'); 
     }
 }

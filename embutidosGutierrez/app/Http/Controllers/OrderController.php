@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -17,13 +18,19 @@ class OrderController extends Controller
         return view('orders/ordersIndex', compact('orders'));
     }
 
-    public function showForClient(Request $request){//controlador de pedidos del clienet
-        $res = $request->get('ordenarOrder');
-        if(!$res)
-        {
-            $res = 'fecha';
+    public function showForClient(){//controlador de pedidos del clienet
+
+        $user = Auth::user()->orders;
+        if ($user) { //Control de usuario 
+            $orders = Auth::user()->orders;
+            foreach($orders as $key => $carrito){
+                if($carrito->estado == "carrito") {
+                    unset($orders[$key]);
+                }
+            }
+        } else {
+            $orders = collect();
         }
-        $orders = Order::orderBy($res,'desc')->paginate(2);
         return view('orders/orderClient', compact('orders'));
     }
 
