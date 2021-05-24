@@ -32,6 +32,9 @@ class Orderline extends Authenticatable
     }
 
     public function calculaPrecioLinea() {
-        return $this->cantidad * $this->precioUnidad;
+        if($this->cantidad && $this->precioUnidad)
+            return $this->cantidad * $this->precioUnidad;
+        else 
+            return 0;
     }
 }

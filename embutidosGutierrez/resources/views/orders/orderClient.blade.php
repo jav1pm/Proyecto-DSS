@@ -16,7 +16,7 @@
             <div class="card">
                 <h2 class="card-header">{{ $order->fecha }}</h2>
                 <div class="card-body">
-                    <h5 class="card-title">Precio: €</h5><!-- pon aqui el precio total -->
+                    <h5 class="card-title">Precio: {{ $order->calculaPrecioPedido() }}€</h5><!-- pon aqui el precio total -->
                     
                         <table id= "mitabla" class="table table-hover ";   style="text-align:center">
                                 <thead>

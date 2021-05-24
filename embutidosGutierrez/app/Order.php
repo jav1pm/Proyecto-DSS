@@ -31,9 +31,10 @@ class Order extends Model
     public function calculaPrecioPedido() {
         $total = 0;
         $orderlines = $this->orderlines;
-
         foreach($orderlines as $ordeline){
-            $total += $orderline->calculaPrecioLinea();
+            error_log($ordeline->precioUnidad);
+            
+            $total += ($ordeline->calculaPrecioLinea());
         }
         return $total;
     }
