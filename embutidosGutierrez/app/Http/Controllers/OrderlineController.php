@@ -40,19 +40,26 @@ class OrderlineController extends Controller
         $orderline -> delete();
         return redirect()->route('cliente.carrito');   
     }
-///////////////////////////////////////
-    public function showCarrito(){//esto es del carrito, a falta de implementar
-        $userOrders = Auth::user()->orders;
-        foreach($userOrders as $carrito){
-            if($carrito->estado == "carrito") { //Existe el carrito con productos
 
-                $precioTotal = $carrito->calculaPrecioPedido();
-                $orderlines = $carrito->Orderlines;
-                return view('cliente.carrito', compact('orderlines', 'precioTotal'));
-            } 
+    public function showCarrito(){
+        
+        $user = Auth::user()->orders;
+        if ($user) { //Control de usuario
+            $userOrders = Auth::user()->orders;
+            foreach($userOrders as $carrito){
+                if($carrito->estado == "carrito") { //Existe el carrito con productos
+    
+                    $precioTotal = $carrito->calculaPrecioPedido();
+                    $orderlines = $carrito->Orderlines;
+                    return view('cliente.carrito', compact('orderlines', 'precioTotal'));
+                } 
+            }
+
+            $precioTotal = 0;
+            $orderlines = collect();
+            return view('cliente.carrito', compact('orderlines', 'precioTotal'));
         }
-
+        
         return redirect()->route('casa'); 
     }
-///////////////////////////////
 }

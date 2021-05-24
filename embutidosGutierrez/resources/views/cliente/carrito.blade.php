@@ -28,7 +28,7 @@
             <tbody >
                 @foreach($orderlines as $orderline)
                 <tr >
-                    <td>{{ $orderline->product_id}}</td><!-- pon aqui el nombre del produco no el id -->
+                    <td>{{ $orderline->product->nombre}}</td><!-- pon aqui el nombre del produco no el id -->
                     
                     <td>{{ $orderline->cantidad }}</td>
                     <td>{{ $orderline->precioUnidad }}€</td>
