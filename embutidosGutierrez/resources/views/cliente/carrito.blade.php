@@ -33,11 +33,11 @@
                     <td>{{ $orderline->cantidad }}</td>
                     <td>{{ $orderline->precioUnidad }}€</td>
                     <td>{{ $orderline->precioUnidad * $orderline->cantidad }}€</td>
-                    <td><a class="btn btn-danger"  href="#">Eliminar</a></td>
+                    <td><a class="btn btn-danger"  href="{{ route('orderlines.deleteOrderlineClient', $orderline)}}">Eliminar</a></td>
                 </tr>
                 @endforeach
             </tbody>
-            {{$orderlines-> links()}}
+            
             <tfoot>
             <td><a class="btn btn-dark"  href="/tienda">Seguir comprando</a></td>
             </tfoot>
@@ -48,7 +48,7 @@
         <div class="col-2">
         
                 <div class="row ">
-                    <h1>Total: <!--<h1> poner aqui el precio total -->
+                    <h1>Total: {{ $precioTotal }} €
                 </div>
                 <div class="row ">
                     <div class="col-5 ">

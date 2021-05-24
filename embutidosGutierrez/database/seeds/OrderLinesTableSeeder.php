@@ -32,5 +32,16 @@ class OrderLinesTableSeeder extends Seeder
         $orderline->product()->associate($producto);
         $orderline->order()->associate($pedido);
         $orderline->save();
+
+        //Añadimos otra linea
+        $producto2 = Product::find(2);
+        $pedido2 = Order::find(1);
+        $orderline2 = new Orderline([
+            'cantidad'=>'4',
+            'precioUnidad' => $producto2 -> precio
+        ]);
+        $orderline2->product()->associate($producto2);
+        $orderline2->order()->associate($pedido2);
+        $orderline2->save();
     }
 }

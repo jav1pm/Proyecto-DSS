@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Orderline;
+use App\Order;
+use Illuminate\Support\Facades\Auth;
 
 class OrderlineController extends Controller
 {
@@ -32,15 +34,25 @@ class OrderlineController extends Controller
         return redirect()->route('orderlines.showOrderlines');   
 
     }
+
+    public function deleteOrderlineClient($id){
+        $orderline = Orderline::find($id);
+        $orderline -> delete();
+        return redirect()->route('cliente.carrito');   
+    }
 ///////////////////////////////////////
-    public function showCarrito(Request $request){//esto es del carrito, a falta de implementar
-        $res = $request->get('ordenarOrderlines');
-        if(!$res)
-        {
-            $res = 'id';
+    public function showCarrito(){//esto es del carrito, a falta de implementar
+        $userOrders = Auth::user()->orders;
+        foreach($userOrders as $carrito){
+            if($carrito->estado == "carrito") { //Existe el carrito con productos
+
+                $precioTotal = $carrito->calculaPrecioPedido();
+                $orderlines = $carrito->Orderlines;
+                return view('cliente.carrito', compact('orderlines', 'precioTotal'));
+            } 
         }
-        $orderlines = Orderline::orderBy($res,'asc')->paginate(5);
-        return view('cliente.carrito', compact('orderlines'));
+
+        return redirect()->route('casa'); 
     }
 ///////////////////////////////
 }

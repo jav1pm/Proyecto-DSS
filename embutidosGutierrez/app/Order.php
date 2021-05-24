@@ -32,8 +32,6 @@ class Order extends Model
         $total = 0;
         $orderlines = $this->orderlines;
         foreach($orderlines as $ordeline){
-            error_log($ordeline->precioUnidad);
-            
             $total += ($ordeline->calculaPrecioLinea());
         }
         return $total;
