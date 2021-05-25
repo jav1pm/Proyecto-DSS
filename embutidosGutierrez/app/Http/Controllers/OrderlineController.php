@@ -146,4 +146,46 @@ class OrderlineController extends Controller
         
         return redirect()->route('casa'); 
     }
+
+    public function comprar(){
+        
+        $user = Auth::user();
+        if ($user) { //Control de usuario
+
+            $direccion = request('direccion');
+            $pago = request('pago');
+            if($direccion && $pago) {
+
+                $userOrders = Auth::user()->orders;
+                foreach($userOrders as $carrito){
+                    if($carrito->estado == "carrito") { //Existe el carrito con productos
+        
+                        $precioTotal = $carrito->calculaPrecioPedido();
+                        $orderlines = $carrito->Orderlines;
+                        if($orderlines && $orderlines->count() > 0) {
+                            //Existen productos en el carrito
+                            $carrito->estado = "Preparando envío";
+                            $carrito->fecha = date('Y-m-d');
+                            $carrito->direccion = $direccion;
+                            $carrito->pago = $pago;
+                            $carrito->save();
+
+                            return redirect()->back()->with('flash', 'PEDIDO PROCESADO CON ÉXITO');
+                        }
+                        else {
+                            //No existen productos en el carrito 
+                            return redirect()->back()->with('flash', 'AÑADE ARTÍCULOS AL CARRITO PARA COMPRAR');
+                        }
+                    } 
+                }
+            } else {
+                return redirect()->back()->with('flash', 'INTRODUCE UN MÉTODO DE PAGO Y DIRECCIÓN');
+            }
+
+            //No existe el carrito 
+            return redirect()->back()->with('flash', 'AÑADE ARTÍCULOS AL CARRITO PARA COMPRAR');
+        }
+        
+        return redirect()->route('casa'); 
+    }
 }
