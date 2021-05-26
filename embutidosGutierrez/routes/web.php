@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('home');
 })->name('casa');
 
+Route::get('/contacto', function () {
+    return view('cliente.contacto');
+})->name('contacto');
+
 Route::get('/tienda', 'ProductController@tienda')->name('cliente.tienda');
 
 Route::get('/carrito', 'OrderlineController@showCarrito')->name('cliente.carrito');

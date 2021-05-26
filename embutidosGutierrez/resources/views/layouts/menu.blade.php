@@ -21,10 +21,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <!-- elementos del menu -->
               <a class="navbar-brand" href="{{ route('casa')}}">
-                <img  width="40" height="34"  src=./imagenes/logo.png>
+                <img  width="40" height="34"  src=/imagenes/logo.png>
               </a>
-              <a class="nav-link" href="{{ route('cliente.tienda')}}">Charcuteria</a>
-              <a class="nav-link" href="#">Contacto</a>
+              <a class="nav-link" href="{{ route('cliente.tienda') }}">Charcuteria</a>
+              <a class="nav-link" href="{{ route('contacto') }}">Contacto</a>
               @auth
                 @if(Auth::user()->esAdmin == true)
                   <a class="nav-link" href="{{ route('products.showProducts')}}">Productos</a>
