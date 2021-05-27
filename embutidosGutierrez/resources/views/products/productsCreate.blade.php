@@ -11,31 +11,31 @@
             <label>
                 Nombre del producto:<br>
                 <input value="{{ old('name') }}" type="text" name="name">
-                {!! $errors->first('name', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('name', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Descripcion del producto: <br>
                 <textarea name="descripcion">{{ old('descripcion') }}</textarea>
-                {!! $errors->first('descripcion', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('descripcion', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Precio del producto: <br>
                 <input value="{{ old('precio') }}" type="text" name="precio">
-                {!! $errors->first('precio', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('precio', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Stock: <br>
                 <input value="{{ old('stock') }}" type="text" name="stock">
-                {!! $errors->first('stock', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('stock', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>
             Imagen: <br>
                 <input value="{{ old('imagen') }}" type="imagen" name="imagen">
-                {!! $errors->first('imagen', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('imagen', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>

@@ -12,13 +12,13 @@
             <label>
                 Nombre de usuario: <br>
                 <input type="text" name="name" value="{{ $user->nombre }}">
-                {!! $errors->first('name', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('name', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Apellidos del usuario: <br>
                 <input type="text" name="secondnames" value="{{ $user->apellidos }}">
-                {!! $errors->first('secondnames', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('secondnames', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>
@@ -29,19 +29,19 @@
             <label>
                 Contraseña: <br>
                 <input type="password" name="password" value="{{ $user->password }}">
-                {!! $errors->first('password', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('password', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Número de teléfono: <br>
                 <input type="text" name="tlf" value="{{ $user->telefono }}">
-                {!! $errors->first('tlf', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('tlf', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>
                 Esadmin: <br>
                 <input type="text" name="admin" value="{{ $user->esAdmin }}">
-                {!! $errors->first('admin', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('admin', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
             <label>
@@ -52,10 +52,10 @@
             <label> 
                 Pago: <br>
                 <input type="text" name="pago" value="{{ $user->pago }}">
-                {!! $errors->first('pago', '<br><small>:message</small><br>') !!}
+                {!! $errors->first('pago', '<br><small class="text-danger">:message</small><br>') !!}
             </label>
             <p></p>
-            <button type="button" class="btn btn-primary">Editar Usuario</button>
+            <button class="btn btn-primary">Editar Usuario</button>
             <a class="btn btn-danger" href="{{ route('users.deleteUser', $user) }}">Borrar<a>
             </form>
             

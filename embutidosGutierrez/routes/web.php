@@ -17,9 +17,13 @@ Route::get('/', function () {
     return view('home');
 })->name('casa');
 
-Route::get('/contacto', function () {
+/*Route::get('/contacto', function () {
     return view('cliente.contacto');
-})->name('contacto');
+})->name('contacto');*/
+
+Route::get('/contacto', 'UserController@contactUser')->name('cliente.contacto');
+
+Route::post('/contacto/validado', 'UserController@contactValidate')->name('cliente.contactoValidado');
 
 Route::get('/tienda', 'ProductController@tienda')->name('cliente.tienda');
 

@@ -54,7 +54,7 @@ class UserController extends Controller
             'password' => 'required',
             'tlf' => 'required|digits:9',
             'admin' => 'required|boolean',
-            'pago' => 'nullable|digit:9'
+            'pago' => 'nullable|digits:9'
         ]);
 
         User::create([
@@ -86,6 +86,25 @@ class UserController extends Controller
         return view('users.editProfile', [
             'user' => $user
         ]);
+    }
+
+    public function contactUser(){
+        return view('cliente.contacto');
+    }
+
+    public function contactValidate(){
+
+        request()->validate([
+
+            'name' => 'required',
+            'secondname' => 'required',
+            'email' => 'required|email',
+            'phone' => 'nullable'
+
+
+        ]);
+
+        return redirect()->back()->with('flash', '¡Enviado, se contactará con usted pronto!');
     }
 
     public function updateUser(User $user){

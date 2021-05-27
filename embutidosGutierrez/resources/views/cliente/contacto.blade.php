@@ -9,40 +9,42 @@
   <div class="row">
     <div class="col">
     <center>
-    <h1>Contactanos</h1>
+    <h1>Contáctanos</h1>
     </center>
     <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+                <form class="form-horizontal" method="POST" action="{{ route('cliente.contactoValidado') }}">
+                @csrf
 
                         <input id="fname" name="name" type="text" placeholder="Nombre" class="form-control">
-
+                        {!! $errors->first('name', '<small class="text-danger">:message</small><br>') !!}
                         <br>
 
-                        <input id="lname" name="name" type="text" placeholder="Apellidos" class="form-control">
-                        
+                        <input id="lname" name="secondname" type="text" placeholder="Apellidos" class="form-control">
+                        {!! $errors->first('secondname', '<small class="text-danger">:message</small><br>') !!}
                         <br>
 
                         <input id="email" name="email" type="text" placeholder="Correo Electrónico" class="form-control">
-                        
+                        {!! $errors->first('email', '<small class="text-danger">:message</small><br>') !!}
+
                         <br>
                       
                         <input id="phone" name="phone" type="text" placeholder="Teléfono(Opcional)" class="form-control">
-                          
+
                         <br>
               
                         <textarea class="form-control" id="message" name="message" placeholder="Escriba aqui su mensaje" rows="7"></textarea>
            
                         <br>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="button">Enviar</button>
+                            <button class="btn btn-primary">Enviar</button>
                         </div>
+                        @if (session()->has('flash'))
+                            <div class= "alert alert-info"> {{ session('flash')}} </div>
+                        @endif
                 </form>
-                <div class="alert alert-info" role="alert">
-                    Enviado, en breves recibirá una contestación. Gracias
-                </div>
             </div>
         </div>
     </div>

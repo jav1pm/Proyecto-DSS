@@ -17,7 +17,7 @@
         <label>
         Descripcion del producto: <br> 
             <textarea name="descripcion">{{ $product->descripcion }}</textarea>
-            {!! $errors->first('descripcion', '<br><small>:message</small><br>') !!}
+            {!! $errors->first('descripcion', '<br><small class="text-danger">:message</small><br>') !!}
         </label>
         <p></p>
         <label>

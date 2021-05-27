@@ -24,7 +24,7 @@
                 <img  width="40" height="34"  src=/imagenes/logo.png>
               </a>
               <a class="nav-link" href="{{ route('cliente.tienda') }}">Charcuteria</a>
-              <a class="nav-link" href="{{ route('contacto') }}">Contacto</a>
+              <a class="nav-link" href="{{ route('cliente.contacto') }}">Contacto</a>
               @auth
                 @if(Auth::user()->esAdmin == true)
                   <a class="nav-link" href="{{ route('products.showProducts')}}">Productos</a>
