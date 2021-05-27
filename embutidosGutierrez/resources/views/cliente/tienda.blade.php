@@ -17,7 +17,7 @@
     <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-1">
+            <div class="col-xxl-1">
             <!-- ckeck de categorias-->
                 <form class="form-inline">
                     <div class="form-check form-check-inline mt-3">
@@ -78,7 +78,7 @@
                 <div class="row">
                 <!-- el muestreo de la tienda -->
                     @foreach($products as $product)
-                    <div class="col-lg-2 col-mg-5 col-sm-12">
+                    <div class="col-sm-12 col-mg-5 col-lg-2">
                         <div class="card">
                             <img src={{ $product->imagen }} class="card-img-top" alt="...">
                             <div class="card-body">

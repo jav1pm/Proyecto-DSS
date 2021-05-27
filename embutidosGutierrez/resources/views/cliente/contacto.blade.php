@@ -49,7 +49,7 @@
 </div>
     </div>
     <div class="col">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.8741159150964!2d-0.9804919843794069!3d38.02671410539649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd639e8347df78c9%3A0x8cc9245de0bfe936!2sCalle%20del%20Cristo%2C%2003313%20El%20Moj%C3%B3n%2C%20Alicante!5e0!3m2!1ses!2ses!4v1622037760791!5m2!1ses!2ses" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <iframe class="responsive-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.8741159150964!2d-0.9804919843794069!3d38.02671410539649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd639e8347df78c9%3A0x8cc9245de0bfe936!2sCalle%20del%20Cristo%2C%2003313%20El%20Moj%C3%B3n%2C%20Alicante!5e0!3m2!1ses!2ses!4v1622037760791!5m2!1ses!2ses" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </div>

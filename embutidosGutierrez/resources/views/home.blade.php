@@ -72,7 +72,7 @@
             <center>
                 <h1 class="display-5">Hecha un vistazo a la visita de RTVE a nuestras instalaciones</h1>
             
-                <iframe width="70%" height="70%" src="https://www.youtube.com/embed/o6RqSGNm42E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="responsive-iframe" width="70%" height="70%" src="https://www.youtube.com/embed/o6RqSGNm42E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </center>
             <br>
 
