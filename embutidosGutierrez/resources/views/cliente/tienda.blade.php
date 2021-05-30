@@ -21,56 +21,56 @@
             <!-- ckeck de categorias-->
                 <form class="form-inline">
                     <div class="form-check form-check-inline mt-3">
-                        <input class="form-check-input" type="checkbox" value="" name= "CheckChorizos" id="CheckChorizos">
+                        <input class="form-check-input" type="radio" value="1" name="CheckCategory" id="CheckChorizos">
                         <label class="form-check-label" for="CheckChorizos">
                         Chorizos
                         </label>
                     </div>
                     <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="checkbox" value="" id="CheckSalchichones">
+                        <input class="form-check-input" type="radio" value="2" name="CheckCategory" id="CheckCategory">
                         <label class="form-check-label" for="CheckSalchichones">
                         Salchichones
                         </label>
                     </div>
                     <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="checkbox" value="" id="CheckEmbuchados">
+                        <input class="form-check-input" type="radio" value="3" name="CheckCategory" id="CheckEmbuchados">
                         <label class="form-check-label" for="CheckEmbuchados">
                         Embuchados
                         </label>
                     </div>
                     <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="checkbox" value="" id="CheckQuesos">
+                        <input class="form-check-input" type="radio" value="4" name="CheckCategory" id="CheckQuesos">
                         <label class="form-check-label" for="CheckQuesos">
                         Quesos
                         </label>
                     </div>
                     <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="checkbox" value="" id="CheckLomos">
+                        <input class="form-check-input" type="radio" value="5" name="CheckCategory" id="CheckLomos">
                         <label class="form-check-label" for="CheckLomos">
                         Lomos
                         </label>
                     </div>
                     <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="checkbox" value="" id="CheckJamones">
+                        <input class="form-check-input" type="radio" value="6" name="CheckCategory" id="CheckJamones">
                         <label class="form-check-label" for="CheckJamones">
                         Jamones
                         </label>
                     </div>
                     <div class="form-check form-check-inline mt-2">
-                        <input class="form-check-input" type="checkbox" value="" id="CheckOtros">
+                        <input class="form-check-input" type="radio" value="7" name="CheckCategory" id="CheckOtros">
                         <label class="form-check-label" for="CheckOtros">
                         Otros
                         </label>
                     </div>
                     <!-- la seleccion de mas barato a mas caro -->
-                    <select class="form-select mt-2">
-                        <option selected>Precio:</option>
+                    <select class="form-select mt-2" id="ordenarProduct" name="ordenarProduct">
+                        <option selected value="0">Destacados </option>
                         <option value="1">Mas caros</option>
                         <option value="2">Mas baratos</option>
                     </select>
                     <!-- el boton -->
                     <div class="d-grid gap-2 mx-auto">  
-                        <button class="btn btn-dark mt-2" type="button">Filtrar</button>
+                        <button class="btn btn-dark mt-2" type="submit">Filtrar</button>
                     </div>
                 </form>
             </div>

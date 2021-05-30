@@ -19,11 +19,36 @@ class ProductController extends Controller
     }
 
     public function tienda(Request $request) {
+
+        $CheckCategory = $request -> get('CheckCategory');
         $res = $request -> get('ordenarProduct');
-        if(!$res){
-            $res = 'id';
+        if($CheckCategory) {
+
+            switch($res) {
+                case "1":
+                    $products = Product::where('category_id', $CheckCategory)->orderBy('precio','desc')->paginate(12);
+                    break;
+                case "2":
+                    $products = Product::where('category_id', $CheckCategory)->orderBy('precio','asc')->paginate(12);
+                    break;
+                default: 
+                    $products = Product::where('category_id', $CheckCategory)->orderBy('id','asc')->paginate(12);
+            }
+
+        } else {
+
+            switch($res) {
+                case "1":
+                    $products = Product::orderBy('precio','desc')->paginate(12);
+                    break;
+                case "2":
+                    $products = Product::orderBy('precio','asc')->paginate(12);
+                    break;
+                default: 
+                    $products = Product::orderBy('id','asc')->paginate(12);
+            }
         }
-        $products = Product::orderBy($res,'asc')->paginate(12);
+
         return view('cliente/tienda', compact('products'));
     }
 
